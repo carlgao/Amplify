@@ -1,0 +1,121 @@
+body { background: #000000}
+#bg{
+  position: fixed;
+  top:0px;
+  left: 0;
+  right: 0;
+  margin: 0px auto;
+  width: 800px;
+  z-index: -1;
+}
+
+#bg-lin-kobe{
+  /*position: absolute;*/
+  /*top:100px;*/
+  /*left: 0;*/
+  /*right: 0;*/
+  /*margin: 0px auto;*/
+  /*width:800px;*/
+  width:100%;
+  margin-bottom:50px;
+  /*z-index: -1;*/
+}
+
+#bg-linferno{
+  width:100%;
+  margin-bottom:50px;
+  /*position: absolute;*/
+  /*top:700px;*/
+  /*left: 0;*/
+  /*right: 0;*/
+  /*margin: 0px auto;*/
+  /*width:800px;*/
+  /*z-index: -1;*/
+}
+
+#home {
+  position:absolute;
+  left:0px;
+}
+
+#gallery {
+  position:absolute;
+  right:0px;
+}
+
+#gallery-box {
+  margin-top:50px;
+}
+
+#home-box {
+  margin-top:10px;
+}
+
+.navigation {
+  margin-top:36px;
+  width:140px;
+  height:50px;
+}
+
+
+
+#title {
+  color: white;
+  font-size:300%;
+  margin: 50px 50px 20px 50px;
+  text-align: center;
+}
+
+.box {
+background-color: rgba(255, 255, 255, 0.9);
+min-height: 100px;
+margin-bottom: 30px;
+padding: 30px 30px 20px 30px;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+-webkit-box-shadow: 1px 1px 10px #000;
+-moz-box-shadow: 1px 1px 10px #000;
+box-shadow: 1px 1px 10px #000;
+}
+
+.top-box{
+width: 300px;
+}
+
+#word {
+  font-size:500%;
+  font-weight:bold;
+  color:red;
+  text-align:center;
+}
+
+#contest {
+  font-size:150%;width:610px;height:80px;
+  -webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;
+}
+
+.rating-span{padding: 6px 6px 6px 6px; display:inline-block;}
+.rating{font-size:130%;width:110px;height:40px;}
+.clicked-rating{
+  padding: 0px 0px 0px 0px;
+  border:6px solid #778899;
+  -webkit-border-radius: 11px;
+  -moz-border-radius: 11px;
+  border-radius: 11px;
+}
+
+.rating-span.name{width:100px;}
+
+.submit-ratings{display:inline-block;text-align:center;margin:0px auto;}
+.submit-button{font-size:300%;width:610px;height:80px;
+  -webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;
+}
+
+.center{text-align:center;}
+
+.error-message{font-color:read;}
+
+/* displaying different pages */
+
+#ranking-page {display:none;}

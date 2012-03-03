@@ -1,0 +1,71 @@
+<div id="fb-root"></div>
+<script>
+
+  var selectedFriends = new Array();
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '237540322999155',
+      status     : true, 
+      cookie     : true,
+      xfbml      : true,
+      oauth      : true,
+      frictionlessRequests: true
+    });
+
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=237540322999155";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="container">
+  <img id="bg" src="/images/lin.jpg" />
+  <!--<a href="/pages/gallery1"><button type="button" id="gallery" class="navigation btn info">Gallery</button></a>-->
+  <div id="title">
+    The Jeremy Lin Word Generator
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <div id="home-box" class="box">
+    <div id="landing-page">
+      <div id="word"></div>
+      <br />
+      <br />
+      <br />
+      <div class="center">
+        <span class="submit-ratings">
+          <button type="button" class="btn success submit-button">Generate another Lin word!</button>
+          <br />
+          <br />
+          <a href="http://zaptees.com/?p=220" target="_top"><button type="button" id="contest" class="btn primary">Enter the $100 Jeremy Lin T-shirt design contest!</button></a>
+          <br />
+          <br />
+          <div style="float:left;" class="fb-like" data-href="http://linword.com" data-send="true" data-width="450" data-show-faces="true"></div>
+          <span style="float:right; margin-left:20px;">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://linword.com/">Tweet</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </span>
+          <span style="float:right;">
+            <a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:81px; height:20px; background:url('http://platform.tumblr.com/v1/share_1.png') top left no-repeat transparent;">Share on Tumblr</a>
+          </span>
+        </span>
+      </div>
+      <div>by <a href="http://carlgao.com" target="_top">Carl Gao</a>. Tweet @carl_gao to share your favorites or suggest more!</div>
+    </div>
+    <br />
+  </div>
+</div>
+
