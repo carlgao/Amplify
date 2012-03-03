@@ -1,5 +1,7 @@
 Linword::Application.routes.draw do
 
+  resources :requests
+
   get "pages/home"
   root :to => "pages#home"
   get "pages/get_word"
