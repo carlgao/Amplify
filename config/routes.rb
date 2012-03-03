@@ -1,5 +1,7 @@
 Linword::Application.routes.draw do
 
+  resources :songs
+
   resources :requests
 
   get "pages/home"
