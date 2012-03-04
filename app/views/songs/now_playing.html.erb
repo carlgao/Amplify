@@ -50,6 +50,9 @@ document.body.onload = function() {
 			meter.width, meter.height);
 		context.restore();
 	}).bind(this);
+
+	var needle = new cObject();
+		
 	
 	// CALLBACK FUNCTIONS
 	var r = 0;	// rotation
@@ -76,6 +79,7 @@ document.body.onload = function() {
 				}
 				r = -1*angle;
 			} else {	// if it's not hovering any objects, lets say it's a swipe
+				
 			}
 			break;
 		default:
