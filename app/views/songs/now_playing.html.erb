@@ -79,8 +79,8 @@ document.body.onload = function() {
     <td><%= link_to 'Show', song %></td>
     <td><button id="<%= song.id %>" class="upvote-btn btn success">Upvote</button></td>
     <td><button id="<%= song.id %>" class="downvote-btn btn danger">Downvote</button></td>
-    <!--<td><%= link_to 'Edit', edit_song_path(song) %></td>-->
-    <!--<td><%= link_to 'Destroy', song, :confirm => 'Are you sure?', :method => :delete %></td>-->
+    <td><%= link_to 'Edit', edit_song_path(song) %></td>
+    <td><%= link_to 'Destroy', song, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
