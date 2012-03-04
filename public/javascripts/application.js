@@ -3,20 +3,6 @@
 
 $(document).ready(function(){
   console.log("ready");
-  $.ajax({
-    url: "/songs/get_hotness",
-    type: "GET",
-    dataType: "text"
-  })
-  .success(function(response) {
-    console.log("get hotness success");
-    console.log(response);
-  })
-  .fail(function(response) {
-    console.log("get hotness fail");
-    console.log(response);
-  })
-  ;
   
   $("#btnInit").click(initiate_geolocation);  
   /*change = 200;*/
