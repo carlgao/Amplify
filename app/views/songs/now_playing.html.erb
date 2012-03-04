@@ -85,6 +85,7 @@ var ratingView = function() {
 	}).bind(this), 1000/30);	// 30 fps
 
 	// touch handlers
+	var rating = 0;
 	document.addEventListener("touchmove", function(event) {
 		// handle one finger touches
 		switch(event.targetTouches.length) {
@@ -96,10 +97,11 @@ var ratingView = function() {
 				var angle = Math.atan((height-rwl+rwl/2 - touch.pageY)/(touch.pageX - width/2)) - Math.PI/2;
 				// find if it's going clockwise or counterclockwise
 				if(-1*rr > angle) { // clockwise
-					nr = (nr < 100) ? nr+1 : 100;
+					rating = (rating < 100) ? rating+1 : 100;
 				} else {
-					nr = (nr > 0) ? nr-1 : 0;
+					rating = (rating > 0) ? rating-1 : 0;
 				}
+				updateRating(rating);
 				if(touch.pageX - width/2 < 0) {
 					angle = angle - Math.PI;
 				}
