@@ -7,6 +7,8 @@
     <th>Upvotes</th>
     <th>Downvotes</th>
     <th>Now playing</th>
+    <th>Hotness</th>
+    <th>Hotcount</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,6 +21,8 @@
     <td><%= song.upvotes %></td>
     <td><%= song.downvotes %></td>
     <td><%= song.playing %></td>
+    <td><%= song.hotness %></td>
+    <td><%= song.hotcount %></td>
     <td><%= link_to 'Show', song %></td>
     <td><%= link_to 'Edit', edit_song_path(song) %></td>
     <td><%= link_to 'Destroy', song, :confirm => 'Are you sure?', :method => :delete %></td>

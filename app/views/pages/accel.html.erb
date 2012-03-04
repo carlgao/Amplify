@@ -40,8 +40,24 @@
     // if the change is greater than the sensitivity
     setInterval(function () {
         var change = Math.abs(x1-x2+y1-y2+z1-z2);
+        change = Math.round(change*10);
+        $.ajax({
+          url: "/songs/hotness",
+          type: "POST",
+          data: {hotness : change},
+          dataType: "text"
+        })
+        .success(function(response) {
+          console.log("success");
+          console.log(response);
+        })
+        .fail(function(response) {
+          console.log("fail");
+          console.log(response);
+        })
+        ;
+        document.getElementById("pos").innerHTML = "change= "+change;
 
-        document.getElementById("pos").innerHTML = "change= "+Math.round(change*10);
 
         // Update new position
         x2 = x1;

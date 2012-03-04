@@ -12,7 +12,7 @@ $(document).ready(function(){
   /*$(".btn").click(generateWord);*/
   /*}*/
   $.ajax({
-    url: "http://developer.echonest.com/api/v4/song/search?api_key=U2IMNUKBKK0RPHBJY&format=json&results=1&artist=pitbull",
+    url: "http://developer.echonest.com/api/v4/song/search?api_key=U2IMNUKBKK0RPHBJY&format=json&results=15&artist=pitbull",
     type: "GET",
     dataType: "json"
   })
