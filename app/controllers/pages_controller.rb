@@ -15,4 +15,6 @@ class PagesController < ApplicationController
   def meter
   end
 
+  def event_list
+  end
 end

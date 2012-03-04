@@ -31,6 +31,7 @@ Linword::Application.routes.draw do
   get "pages/send_request"
   get "pages/accel"
   get "pages/meter"
+  get "pages/event_list"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
