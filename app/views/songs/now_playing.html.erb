@@ -23,8 +23,12 @@ document.body.onload = function() {
 	ratingWheel.x = width/2 - 450/2;
 	ratingWheel.y = 430;
 	ratingWheel.draw = (function() {
-		context.drawImage(ratingWheelImg, ratingWheel.x, ratingWheel.y, 
+		context.save();
+		context.traslate(rotatingWheel.x-450/2, rotationWheel.y-450/2);
+		context.rotate(r);
+		context.drawImage(ratingWheelImg, -450/2, -450/2, 
 				ratingWheel.width, ratingWheel.height);
+		context.restore();
 	}).bind(this);
 
 	var r = 0;	// rotation
@@ -34,10 +38,7 @@ document.body.onload = function() {
 		context.clearRect(0,0,width,height);	// clear the rectangle first
 		context.drawImage(backgroundImg, 0, 0, width, height);
 
-		context.save();
-		context.rotate(r);
 		ratingWheel.draw();
-		context.restore();
 	}).bind(this), 1000/30);	// 30 fps
 
 	// touch handlers
