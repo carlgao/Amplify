@@ -89,7 +89,11 @@
                   btn.addClass("btn");
                   btn.addClass("primary");
                   var eventItem = $("<tr>");
-                  eventItem.append('<a href="/">' + btn + "</a>");
+                  var a = $("<a>");
+                  a.attr("href", "/");
+                  a.append(btn);
+                  eventItem.append(a);
+                  //eventItem.append('<a href="/">' + btn + "</a>");
                   console.log(eventItem);
                   table.append(eventItem);
                   console.log(table);
