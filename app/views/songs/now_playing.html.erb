@@ -122,6 +122,7 @@ var updateRating = (function(rating) {
 
 	// scale rating from 0 - 100 to -PI/3 - PI/3
 	nr = (rating/100) * 2*Math.PI/3 - Math.PI/3;
+	console.log("calculated nr = %d", nr);
 }).bind(ratingView);
 
 document.body.onload = ratingView;
