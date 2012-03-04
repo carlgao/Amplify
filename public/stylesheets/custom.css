@@ -107,7 +107,9 @@ input {width:300px;}
 	background:red; 
 }
 #react-main{
-	height:1920px;
-	margin:0 auto;
-	background:url('/images/React.png') no-repeat;
-}
+	background: url(images/React.png) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+				}
