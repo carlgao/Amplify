@@ -58,8 +58,8 @@
     		vx = vx + ax;
      
     		var ball = document.getElementById("ball");
-    		y = parseInt(y + vy * vMultiplier);
-    		x = parseInt(x + vx * vMultiplier);
+    		y = parseInt(vy * vMultiplier);
+    		x = parseInt(vx * vMultiplier);
     		
     		if (x<0) { x = 0; vx = 0; }
     		if (y<0) { y = 0; vy = 0; }
