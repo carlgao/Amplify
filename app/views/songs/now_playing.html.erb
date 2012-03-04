@@ -20,7 +20,7 @@
     // if the change is greater than the sensitivity
     setInterval(function () {
         var change = Math.abs(x1-x2+y1-y2+z1-z2);
-        change = Math.round(change*15);
+        change = Math.round(change*10);
         $.ajax({
           url: "/songs/hotness",
           type: "POST",
