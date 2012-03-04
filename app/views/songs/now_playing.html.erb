@@ -1,9 +1,11 @@
 
 <script type="text/javascript">
 	var canvas = document.getElementById("paper").getContext("2d");
+	canvas.width = 450;
+	canvas.height = 960;
 	var ratingWheel = new cObject();
 	ratingWheel.width = 450;
-	ratingWheel.height = 450;
+	ratingWheel.height = 960;
 	ratingWheel.x = 640/2 - 450/2;
 	ratingWheel.y = 430;
 	ratingWheel.draw = function() {
