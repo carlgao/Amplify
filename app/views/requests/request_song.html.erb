@@ -16,7 +16,7 @@
     <th></th>
   </tr>
 
-  <% @requests_by_score = @requests.sort {|a, b| a[1] <=> b[1]} %>
+  <% @requests_by_score = @requests.sort {|a, b| b[1] <=> a[1]} %>
   <% @requests_by_score.each do |request| %>
   <tr>
     <td><%= request.name %></td>

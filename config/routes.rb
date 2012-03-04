@@ -21,6 +21,7 @@ Linword::Application.routes.draw do
       post :not_play
       post :hotness
       get :destroy_all
+      get :get_hotness
     end
   end
 
