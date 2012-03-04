@@ -9,6 +9,10 @@ document.body.onload = function() {
 	canvas.width = width;
 	canvas.height = height;
 
+	var backgroundImg = new Image();
+	backgroundImg.onload = function() {};
+	backgroundImg.src = "/images/background.png";
+
 	var ratingWheelImg = new Image();
 	ratingWheelImg.onload = function() {};
 	ratingWheelImg.src = "/images/vinyl.png";
@@ -25,6 +29,8 @@ document.body.onload = function() {
 
 	// starts timed draw events
 	setInterval((function() {
+		context.clearRect(0,0,width,height);	// clear the rectangle first
+		context.drawImage(backgroundImg, 0, 0, width, height);
 		ratingWheel.draw();
 	}).bind(this), 1000/30);	// 30 fps
 };
