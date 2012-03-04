@@ -2,6 +2,7 @@
 <script type="text/javascript">
 document.body.onload = function() {
 	var canvas = document.getElementById("paper").getContext("2d");
+	var context = canvas.getContext("2d");
 
 	canvas.width = 450;
 	canvas.height = 960;
@@ -11,7 +12,7 @@ document.body.onload = function() {
 	ratingWheel.x = 640/2 - 450/2;
 	ratingWheel.y = 430;
 	ratingWheel.draw = function() {
-		canvas.drawImg(ratingWheel.x, ratingWheel.y, 
+		context.drawImg(ratingWheel.x, ratingWheel.y, 
 				ratingWheel.width, ratingWheel.height);
 	};
 
