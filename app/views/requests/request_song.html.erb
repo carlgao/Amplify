@@ -3,6 +3,27 @@
     <div data-role="fieldcontain">
       <input id="autocomplete" placeholder="" value="" type="search" onkeypress="onKeyPress();" />
     </div>
-    <button id="request-btn" class="btn primary">Request a song</button>
+    <button id="request-btn" class="btn primary">Request song</button>
   </div>
 </div>
+
+<h1>Listing requests</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Score</th>
+    <th></th>
+  </tr>
+
+  <% @requests_by_score = @requests.sort {|a, b| a[1] <=> b[1]} %>
+  <% @requests_by_score.each do |request| %>
+  <tr>
+    <td><%= request.name %></td>
+    <td><%= request.score %></td>
+    <td><button id="<%= request.id %>" class="request-vote-btn btn success">Upvote</button></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

@@ -85,6 +85,7 @@ var ratingView = function() {
 	}).bind(this), 1000/30);	// 30 fps
 
 	// touch handlers
+	var rating = 0;
 	document.addEventListener("touchmove", function(event) {
 		// handle one finger touches
 		switch(event.targetTouches.length) {
@@ -94,11 +95,16 @@ var ratingView = function() {
 			if(ratingWheel.isHovering(touch.pageX+rwl/2, touch.pageY+rwl/2)) {
 				// find a new rotation angle		
 				var angle = Math.atan((height-rwl+rwl/2 - touch.pageY)/(touch.pageX - width/2)) - Math.PI/2;
-				// find if it's going clockwise or counterclockwise
-				//if(rr = 
 				if(touch.pageX - width/2 < 0) {
 					angle = angle - Math.PI;
 				}
+				// find if it's going clockwise or counterclockwise
+				if(-1*rr > angle) { // clockwise
+					rating = (rating < 100) ? rating+1 : 100;
+				} else {
+					rating = (rating > 0) ? rating-1 : 0;
+				}
+				updateRating(rating);
 				rr = -1*angle;
 			} else {	// if it's not hovering any objects, lets say it's a swipe
 				
@@ -120,12 +126,11 @@ var updateRating = function(rating) {
 	}
 
 	// scale rating from 0 - 100 to -PI/3 - PI/3
-	nr = (rating/100) * 2*Math.PI/3 - Math.PI/3;
+	nr = (rating/100) * 2*Math.PI/(5/2) - Math.PI/(5/2);
 	console.log("calculated nr = %d", nr);
 };
 
 document.body.onload = ratingView;
-updateRating(90);
 </script>
 
 <canvas id="paper"></canvas>
