@@ -22,7 +22,7 @@ document.body.onload = function() {
 	ratingWheel.width = rwl;
 	ratingWheel.height = rwl; 
 	ratingWheel.x = width/2;
-	ratingWheel.y = height - rwl;
+	ratingWheel.y = height - 2*rwl/3;
 	ratingWheel.draw = (function() {
 		context.save();
 		context.translate(ratingWheel.x, ratingWheel.y);
@@ -36,8 +36,8 @@ document.body.onload = function() {
 	meterImg.src = "/images/meter.png";
 
 	var meter = new cObject();
-	mw = 600;
-	mh = 400;
+	mw = 300;
+	mh = 200;
 	meter.visible = true;
 	meter.width = mw;
 	meter.height = mh;
