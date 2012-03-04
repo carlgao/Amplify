@@ -73,11 +73,28 @@
 
         Eventbrite({'app_key': "CLKWW6EUW2BJSOK4V2", 'user_key':"131598079919974107092"}, function(eb_client){ //eb_client interaction goes here... 
         // parameters to pass to the API
-        var params = {'within': "20", 'latitude': position.coords.latitude, 'longitude': position.coords.longitude};
-// make a client request, provide another callback to handle the response data
-eb_client.event_search( params, function( response ){
-    console.log( response );
-    }); 
+            var params = {'within': "10", 'latitude': position.coords.latitude, 'longitude': position.coords.longitude};
+            // make a client request, provide another callback to handle the response data
+            eb_client.event_search( params, function( response ){
+              var list = $("ol");
+              console.log(list);
+              for (e in response.events) {
+                if (e > 0) {
+                  console.log( response.events[e] );
+                  console.log(response.events[e].event);
+                  t = response.events[e].event.title;
+                  var eventItem = $("li");
+                  eventItem.html(t);
+                  console.log(eventItem);
+                  list.append(eventItem);
+                  console.log(list);
+                  //console.log(response.events[e].event.venue);
+                  //console.log(response.events[e].event.venue.name);
+                }
+
+              }
+              $(".event_list").append(list);
+              }); 
             });
         }  
 
