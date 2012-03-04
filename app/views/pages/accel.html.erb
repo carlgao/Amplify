@@ -2,12 +2,6 @@
  
 
   <style> 
-  body {
-    background-color: black;
-    color: white;
-    font-family: Helvetica, Verdana, Sans Serif;
-    font-size: 30px;
-  }
   
   #no {
   	display: none;	
@@ -46,9 +40,7 @@
     setInterval(function () {
         var change = Math.abs(x1-x2+y1-y2+z1-z2);
 
-        if (change > sensitivity) {
-            alert('Shake!');
-        }
+        document.getElementById("pos").innerHTML = "change= "+change;
 
         // Update new position
         x2 = x1;
@@ -57,21 +49,15 @@
     }, 150);
 };
 
-  alert('Shake!');
+
   </script> 
 
  
 
   <div id="content"> 
-      <h1>Move the Ball</h1> 
-      <a href="#" onClick="alert('Thanks for the click')">Click me</a>
-      <div id="yes"> 
-          <p>Tilt your device to move the ball. This sample is using Device Orientation and Motion API compatible with iOS since 4.2</p> 
-          <p>Mantain your device in portrait orientation for better results (you can lock it)</p> 
+      <div id="pos" style="font-size: 30px;">x=0<br />y=0</div> 
       </div> 
-      <div id="no"> 
-      Your browser does not support Device Orientation and Motion API. Try this sample with iPhone, iPod or iPad with iOS 4.2+.    
-      </div> 
+
   </div> 
  
 
