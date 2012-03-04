@@ -143,5 +143,13 @@ class SongsController < ApplicationController
 
   def dj
 
+    
+    @now_playing_song = Song.where("playing=?", true).first
+    #@now_playing_song = Song.order(:id).last
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @now_playing_song }
+    end
   end
 end
