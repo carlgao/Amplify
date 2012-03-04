@@ -49,7 +49,7 @@ document.body.onload = function() {
 		case 1:
 			var touch = event.targetTouches[0];
 			// find a new rotation angle		
-			var angle = Math.atan((430+450/2 - touch.pageY)/(touch.pageX - width/2)) - Math.PI/2;
+			var angle = Math.atan((height-rwl+rwl/2 - touch.pageY)/(touch.pageX - width/2)) - Math.PI/2;
 			if(touch.pageX - width/2 < 0) {
 				angle = angle - Math.PI;
 			}
