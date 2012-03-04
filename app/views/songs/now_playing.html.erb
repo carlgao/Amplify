@@ -149,6 +149,23 @@ var ratingView = function() {
 		context.restore();
 	}).bind(this);
 
+	var glossImg = new Image();
+	glossImg.src = "/images/meter_gloss.png";
+
+	var gloss = new cObject();
+	gloss.visible = true;
+	gloss.width = mw;
+	gloss.height = mh;
+	gloss.x = width/2;
+	gloss.y = 16+mh/2;
+	gloss.draw = (function() {
+		context.save();
+		context.translate(gloss.x, gloss.y);
+		context.drawImage(glossImg, -mw/2, -mh/2,
+			gloss.width, gloss.height);
+		context.restore();
+	}).bind(this);
+
 	$.ajax({
 		url: "/songs/get_hotness",
 		type: "GET",
@@ -190,6 +207,7 @@ var ratingView = function() {
 		ratingWheel.draw();
 		meter.draw();
 		needle.draw();
+		gloss.draw();
 		for(var i = 0; i < 11; i++) {
 			var id = indicators[i];
 			context.save();
