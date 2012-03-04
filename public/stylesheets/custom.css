@@ -98,13 +98,15 @@ box-shadow: 1px 1px 10px #000;
 input {width:300px;}
 
 /****** React page CSS Stylings ****/
+
 #react-nav{
 	position:fixed;
 	left:0px; 
 	bottom:0px; 
 	height:70px; 
 	width:100%;
-	background:red; 
+	background:grey; 
 }
 #react-main{
+	
 }
