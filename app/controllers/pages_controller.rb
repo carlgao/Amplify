@@ -9,4 +9,7 @@ class PagesController < ApplicationController
   def song_request
   end
 
+  def accel
+  end
+
 end

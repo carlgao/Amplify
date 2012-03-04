@@ -20,6 +20,10 @@
   <%= @song.downvotes %>
 </p>
 
+<p>
+  <b>Now playing</b>
+  <%= @song.playing %>
+</p>
 
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'All songs', songs_path %> |

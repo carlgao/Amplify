@@ -111,7 +111,8 @@ class SongsController < ApplicationController
 
   def now_playing
     
-    @now_playing_song = Song.order(:id).last
+    @now_playing_song = Song.where("playing=?", true).first
+    #@now_playing_song = Song.order(:id).last
 
     respond_to do |format|
       format.html # index.html.erb
