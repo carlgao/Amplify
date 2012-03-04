@@ -84,7 +84,7 @@
                   console.log(response.events[e].event);
                   t = response.events[e].event.title;
                   var eventItem = $("<li>");
-                  eventItem.html(t);
+                  eventItem.html("<a href="/">" + t + "</a>");
                   console.log(eventItem);
                   list.append(eventItem);
                   console.log(list);
