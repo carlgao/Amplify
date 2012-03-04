@@ -19,7 +19,7 @@ document.body.onload = function() {
 	var ratingWheelImg = new Image();
 	ratingWheelImg.onload = function() {};
 	ratingWheelImg.src = "/images/vinyl.png";
-};
+}.bind(this);
 
 // starts timed draw events
 setInterval(function() {
