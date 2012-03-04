@@ -225,4 +225,9 @@ class SongsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def get_hotness
+    @now_playing_song = Song.where("playing=?", true).first
+    @now_playing_song.hotness
+  end
 end
