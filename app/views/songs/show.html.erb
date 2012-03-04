@@ -25,6 +25,11 @@
   <%= @song.playing %>
 </p>
 
+<p>
+  <b>Source</b>
+  <%= @song.source %>
+</p>
+
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'All songs', songs_path %> |
 <%= link_to 'Now playing', :action => 'now_playing' %>

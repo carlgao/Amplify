@@ -21,10 +21,49 @@ $(document).ready(function(){
   })
   ;
 
-  $("#song-input").click(function() {
-    var newSong = $.create("audio");
-    var songSource = $.create("source");
+  $("#song-add").click(function() {
+    var src = $("#song-link").val();
+    var title = $("#song-title").val();
+    console.log(src);
+    console.log(title);
+
+    var newSong = $("<div>");
+    newSong.addClass("song");
+    var songTitle = $("<div>");
+    songTitle.html(title);
+    songTitle.addClass("song-title");
+    songTitle.text(title);
+    var songAudio = $("<audio>");
+    songAudio.attr("controls", "controls");
+    /*songAudio.attr("autoplay", "true");*/
+
+    /*songAudio.set("onplay", function() {*/
+    /*alert( "sound played" );*/
+    /*});*/
+
+    var songSource = $("<source>");
+    songSource.attr("src", src);
+
+    songAudio.html("Your browser doesn't support HTML5 audio. Upgrade your browser!");
+    songAudio.prepend(songSource);
+
+    songAudio.click(function() {
+      /*setTimeout($.proxy( function() {console.log(this.paused);}), this,500), this));*/
+      setTimeout(
+          $.proxy(function(){
+            console.log(this.paused);
+            if (this.paused) {
+              
+            }
+          }, this), 500
+      );
+    });
+
+    newSong.append(songTitle);
+    newSong.append(songAudio);
+    $("#songs").prepend("<br />");
     $("#songs").prepend(newSong);
+    
   });
    
 
@@ -92,6 +131,8 @@ $(document).ready(function(){
   });
 
 });
+
+
 
 function generateWord(){
   $.ajax({
