@@ -70,6 +70,7 @@ setInterval(function () {
 	  console.log("get hotness success");
 	  console.log(response);
 	  updateRating(response);
+      alert(response);
 	})
 	.fail(function(response) {
 	  console.log("get hotness fail");
