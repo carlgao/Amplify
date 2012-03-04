@@ -37,6 +37,16 @@
         })
         ;
 
+
+        // Update new position
+        x2 = x1;
+        y2 = y1;
+        z2 = z1;
+    }, 1000);
+}
+
+
+    setInterval(function () {
         $.ajax({
           url: "/songs/get_hotness",
           type: "GET",
@@ -53,13 +63,7 @@
         })
         ;
 
-
-        // Update new position
-        x2 = x1;
-        y2 = y1;
-        z2 = z1;
-    }, 1000);
-};
+    }, 50);
 
 
 
