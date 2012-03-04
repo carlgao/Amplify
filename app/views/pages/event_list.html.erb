@@ -77,9 +77,9 @@
             // make a client request, provide another callback to handle the response data
             eb_client.event_search( params, function( response ){
               for (e in response.events) {
-                console.log( e );
-                console.log(e.event);
-                console.log(e.event.venue);
+                console.log( response.events[e] );
+                console.log(response.events[e].event);
+                //console.log(e.event.venue);
 
               }
               }); 
