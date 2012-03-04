@@ -11,6 +11,16 @@ $(document).ready(function(){
   /*} else {*/
   /*$(".btn").click(generateWord);*/
   /*}*/
+  $.ajax({
+    url: "http://developer.echonest.com/api/v4/song/search?api_key=U2IMNUKBKK0RPHBJY&format=json&results=1&artist=pitbull",
+    type: "GET",
+    dataType: "json"
+  })
+  .success(function(response) {
+    console.log(response);
+  })
+  ;
+   
 
   $("#request-btn").click(function() {
     alert("request");
