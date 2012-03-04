@@ -20,6 +20,12 @@ document.body.onload = function() {
 	ratingWheelImg.onload = function() {};
 	ratingWheelImg.src = "/images/vinyl.png";
 };
+
+// starts timed draw events
+setInterval(function() {
+	ratingWheel.draw();
+}, 1000/30);	// 30 fps
+
 </script>
 
 <canvas id="paper"></canvas>
