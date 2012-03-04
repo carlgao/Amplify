@@ -108,6 +108,7 @@ input {width:300px;}
 }
 #react-main{
 	width:320px;
+	height:960px;
 	margin:0 auto;
 	background:url('/images/React.png') no-repeat;
 }
