@@ -19,6 +19,7 @@ document.body.onload = function() {
 
 	var ratingWheel = new cObject();
 	var rwl = 225;
+	ratingWheel.visible = true;
 	ratingWheel.width = rwl;
 	ratingWheel.height = rwl; 
 	ratingWheel.x = width/2;
@@ -33,12 +34,10 @@ document.body.onload = function() {
 	}).bind(this);
 
 	var r = 0;	// rotation
-
 	// starts timed draw events
 	setInterval((function() {
 		context.clearRect(0,0,width,height);	// clear the rectangle first
 		context.drawImage(backgroundImg, 0, 0, width, height);
-
 		ratingWheel.draw();
 	}).bind(this), 1000/30);	// 30 fps
 
@@ -48,12 +47,16 @@ document.body.onload = function() {
 		switch(event.targetTouches.length) {
 		case 1:
 			var touch = event.targetTouches[0];
-			// find a new rotation angle		
-			var angle = Math.atan((height-rwl+rwl/2 - touch.pageY)/(touch.pageX - width/2)) - Math.PI/2;
-			if(touch.pageX - width/2 < 0) {
-				angle = angle - Math.PI;
+			// figure out if the touch is within bounds of the rating wheel
+			if(ratingWheel.isHovering(touch.pageX, touch.pageY)) {
+				// find a new rotation angle		
+				var angle = Math.atan((height-rwl+rwl/2 - touch.pageY)/(touch.pageX - width/2)) - Math.PI/2;
+				if(touch.pageX - width/2 < 0) {
+					angle = angle - Math.PI;
+				}
+				r = -1*angle;
+			} else {	// if it's not hovering any objects, lets say it's a swipe
 			}
-			r = -1*angle;
 			break;
 		default:
 			break;
