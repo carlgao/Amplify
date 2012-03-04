@@ -2,22 +2,22 @@
 <script type="text/javascript">
 
 var songName = "song name goes here";
+var rating = 0;
 
-    $.ajax({
-      url: "/songs/get_name",
-      type: "GET",
-      dataType: "text"
-    })
-    .success(function(response) {
-      console.log("success");
-      console.log(response);
-      songName = response;
-    })
-    .fail(function(response) {
-      console.log("fail")
-      console.log(response);
-    })
-    ;
+$.ajax({
+	url: "/songs/get_name",
+	type: "GET",
+	dataType: "text"
+})
+.success(function(response) {
+	console.log("success");
+	console.log(response);
+	songName = response;
+})
+.fail(function(response) {
+	console.log("fail")
+	console.log(response);
+});
 
 if (typeof window.DeviceMotionEvent != 'undefined') {
     // Shake sensitivity (a lower number is more)
@@ -143,7 +143,7 @@ var ratingView = function() {
 		context.translate(meter.x, meter.y);
 		context.drawImage(meterImg, -mw/2, -mh/2,
 			meter.width, meter.height);
-		context.fillText(songName, meter.x + 50, meter.y + 5);
+		context.fillText(songName, -mw/2 + 50, -mh/2 + 5);
 		context.restore();
 	}).bind(this);
 
@@ -236,7 +236,6 @@ var ratingView = function() {
 	}).bind(this), 1000/30);	// 30 fps
 
 	// touch handlers
-	var rating = 0;
 	document.addEventListener("touchmove", function(event) {
 		// handle one finger touches
 		switch(event.targetTouches.length) {
