@@ -1,3 +1,21 @@
+
+
+<script type="text/javascript">
+	document.addEventListener("touchmove", function(event) {
+		// handle one finger touches
+		switch(event.targetTouches.length) {
+		case 1:
+			var touch = event.targetTouches[0];
+			if(touch.pageX > 320 - 20) {	// go forward
+				window.location = "/songs/now_playing.html";
+			}
+			break;
+		default:
+			break;
+		}
+	}, false);
+</script>
+
 <div id="react-nav">
 	<img src="/images/twt.png" alt="twitter icon" height="100px"/>
 	<img src="/images/page2.png" alt="page-icon" height="100px" />

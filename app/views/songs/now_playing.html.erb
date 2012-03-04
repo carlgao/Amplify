@@ -256,12 +256,14 @@ var ratingView = function() {
 				}
 
 				rr = -1*angle;
-
-				// stop the touches from moving the screen
-				event.preventDefault();
-			} else {	// if it's not hovering any objects, lets say it's a swipe
-				
+			} else if(touch.pageX > width - 20) {	// go forward
+				window.location = "/requests/request_song.html";	
+			} else if(touch.pageX < 20) {	// go back
+				window.location = "/pages/gallery1.html";
 			}
+
+			// stop the touches from moving the screen
+			event.preventDefault();
 			break;
 		default:
 			break;
@@ -285,10 +287,11 @@ document.body.onload = ratingView;
 </script>
 
 <canvas id="paper"></canvas>
-<ul data-role="pagination">
+
+<!--<ul data-role="pagination">
 	<li class="ui-pagination-prev"><a href="/pages/song_request.html">Prev</a></li>
 	<li class="ui-pagination-next"><a href="/pages/gallery1.html">Next</a></li>
-</ul>
+</ul>-->
 
 <!-- canvas contains everything
 <% song = @now_playing_song %>
