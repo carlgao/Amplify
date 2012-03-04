@@ -4,7 +4,8 @@
 $(document).ready(function(){
   console.log("ready");
   
-  $("#btnInit").click(initiate_geolocation);  
+  /*$("#btnInit").click(initiate_geolocation);  */
+
   /*change = 200;*/
   /*$.ajax({*/
   /*url: "/songs/hotness",*/
@@ -271,14 +272,14 @@ function onKeyPress(){
       );
 }
 
-function initiate_geolocation() { 
-  navigator.geolocation.getCurrentPosition(handle_geolocation_query);  
-}  
+/*function initiate_geolocation() { */
+/*navigator.geolocation.getCurrentPosition(handle_geolocation_query);  */
+/*}  */
 
-function handle_geolocation_query(position){  
-  alert('Lat: ' + position.coords.latitude + ' ' +  
-      'Lon: ' + position.coords.longitude);  
-}  
+/*function handle_geolocation_query(position){  */
+/*alert('Lat: ' + position.coords.latitude + ' ' +  */
+/*'Lon: ' + position.coords.longitude);  */
+/*}  */
 
 function generateWord(){
   $.ajax({
