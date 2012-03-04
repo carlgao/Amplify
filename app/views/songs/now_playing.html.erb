@@ -14,7 +14,6 @@ document.body.onload = function() {
 	backgroundImg.src = "/images/background.png";
 
 	var ratingWheelImg = new Image();
-	ratingWheelImg.onload = function() {};
 	ratingWheelImg.src = "/images/vinyl.png";
 
 	var ratingWheel = new cObject();
@@ -33,6 +32,26 @@ document.body.onload = function() {
 		context.restore();
 	}).bind(this);
 
+	var meterImg = new Image();
+	meterImg.src = "/images/meter.png";
+
+	var meter = new cObject();
+	mw = 600;
+	ml = 400;
+	meter.visible = true;
+	meter.width = mw;
+	meter.height = mh;
+	meter.x = width/2;
+	meter.y = 32;
+	meter.draw = (function() {
+		context.save();
+		context.translate(meter.x, meter.y);
+		context.drawImage(meterImg, -mw/2, -mh/2,
+			meter.width, meter.height);
+		context.restore();
+	}).bind(this);
+	
+	// CALLBACK FUNCTIONS
 	var r = 0;	// rotation
 	// starts timed draw events
 	setInterval((function() {
