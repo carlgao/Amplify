@@ -1,6 +1,7 @@
 
 <script type="text/javascript">
- var ratingView = function() {
+var nr = 0;	// needle rotation angle
+var ratingView = function() {
 	var canvas = document.getElementById("paper");
 	var context = canvas.getContext("2d");
 	var width = 320;
@@ -65,14 +66,14 @@
 	needle.draw = (function() {
 		context.save();
 		context.translate(needle.x, needle.y);
-		context.rotate(this.nr);
+		context.rotate(nr);
 		context.drawImage(needleImg, -nw/2, -nh+2,
 			needle.width, needle.height);
 		context.restore();
 	}).bind(this);
 	
 	// CALLBACK FUNCTIONS
-	this.nr = 0; // needle rotation
+	nr = 0; // needle rotation
 
 	var rr = 0;	// wheel rotation
 	// starts timed draw events
@@ -112,7 +113,7 @@
 	}, false);
 };
 
-var updateRating = (function(rating) {
+var updateRating = function(rating) {
 	if(rating < 0) {
 		rating = 0;
 	} else if (rating > 100) {
@@ -120,9 +121,9 @@ var updateRating = (function(rating) {
 	}
 
 	// scale rating from 0 - 100 to -PI/3 - PI/3
-	this.nr = (rating/100) * 2*Math.PI/3 - Math.PI/3;
-	console.log("calculated nr = %d", this.nr);
-}).bind(ratingView);
+	nr = (rating/100) * 2*Math.PI/3 - Math.PI/3;
+	console.log("calculated nr = %d", nr);
+};
 
 document.body.onload = ratingView;
 updateRating(90);
