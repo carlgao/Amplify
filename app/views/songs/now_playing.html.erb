@@ -1,6 +1,24 @@
 
 <script type="text/javascript">
 
+var songName = "";
+
+    $.ajax({
+      url: "/songs/get_name",
+      type: "GET",
+      dataType: "text"
+    })
+    .success(function(response) {
+      console.log("success");
+      console.log(response);
+      songName = response;
+    })
+    .fail(function(response) {
+      console.log("fail")
+      console.log(response);
+    })
+    ;
+
 if (typeof window.DeviceMotionEvent != 'undefined') {
     // Shake sensitivity (a lower number is more)
     var sensitivity = 20;

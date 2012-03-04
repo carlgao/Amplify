@@ -22,6 +22,7 @@ Linword::Application.routes.draw do
       post :hotness
       get :destroy_all
       get :get_hotness
+      get :get_name
     end
   end
 

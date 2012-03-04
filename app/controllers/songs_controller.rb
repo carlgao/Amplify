@@ -240,4 +240,19 @@ class SongsController < ApplicationController
       format.xml  { render(:text => hotness) }
     end
   end
+
+  def get_name
+    @now_playing_song = Song.where("playing=?", true).first
+    if @now_playing_song == nil
+      name = "No song currently playing"
+    elsif @now_playing_song.hotness == nil
+      name = "No song currently playing"
+    else
+      name = @now_playing_song.name
+    end
+    respond_to do |format|
+      format.html { render(:text => name) }
+      format.xml  { render(:text => name) }
+    end
+  end
 end
