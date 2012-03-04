@@ -228,6 +228,16 @@ class SongsController < ApplicationController
 
   def get_hotness
     @now_playing_song = Song.where("playing=?", true).first
-    @now_playing_song.hotness
+    if @now_playing_song == nil
+      hotness = 0
+    elsif @now_playing_song.hotness == nil
+      hotness = 0
+    else
+        hotness = @now_playing_song.hotness
+    end
+    respond_to do |format|
+      format.html { render(:text => hotness) }
+      format.xml  { render(:text => hotness) }
+    end
   end
 end
