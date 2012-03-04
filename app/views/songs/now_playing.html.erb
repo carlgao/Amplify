@@ -258,7 +258,7 @@ var ratingView = function() {
 				rr = -1*angle;
 			} else if(touch.pageX > width - 20) {	// go forward
 				window.location = "/pages/song_request.html";	
-			} else if(touch.pageY < 20) {	// go back
+			} else if(touch.pageX < 20) {	// go back
 				window.location = "/pages/gallery1.html";
 			}
 
