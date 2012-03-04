@@ -2,6 +2,38 @@
 
 <div id="home-box" class="box">
   <div id="title">DJ Station</div>
+<h2>Now Playing</h2>
+<% song = @now_playing_song %>
+<% if song == nil %>
+  <tr>No songs currently playing</tr>
+<% else %>
+ <table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Requests</th>
+    <th>Upvotes</th>
+    <th>Downvotes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <tr>
+    <td><%= song.id %></td>
+    <td><%= song.name %></td>
+    <td><%= song.requests %></td>
+    <td><%= song.upvotes %></td>
+    <td><%= song.downvotes %></td>
+    <td><%= song.playing %></td>
+    <td><%= link_to 'Show', song %></td>
+    <td><%= link_to 'Edit', edit_song_path(song) %></td>
+    <!--<td><%= link_to 'Destroy', song, :confirm => 'Are you sure?', :method => :delete %></td>-->
+  </tr>
+<% end %>
+</table>
+
+  
   <h2>New Song</h2>
   Title: <br />
   <input id="song-input" placeholder="Party Rock Anthem"/> <!--TODO: use echo nest to complete title--> <br />
