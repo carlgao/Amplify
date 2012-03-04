@@ -72,11 +72,12 @@
                   'Lon: ' + position.coords.latitude);  
         }  
 
-         $.ajax({
-    url: "https://www.eventbrite.com/json/event_search?app_key=5HWLFDG4ZMAT4HSRLW&keywords=super%20fun",
-    type: "GET",
-    dataType: "json"
-  })
+        $.ajax({ type: "GET",url: "http://www.eventbrite.com/json/event_search?app_key=5HWLFDG4ZMAT4HSRLW&keywords=super%20fun",dataType: "jsonp", success: readData(data) } })
+   //      $.ajax({
+  //  url: "http://www.eventbrite.com/json/event_search?app_key=5HWLFDG4ZMAT4HSRLW&keywords=super%20fun",
+  //  type: "GET",
+ //   dataType: "json"
+ // })
   .done(function(response) {
     console.log(response);
   })
