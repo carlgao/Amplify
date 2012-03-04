@@ -143,6 +143,7 @@ var ratingView = function() {
 		context.translate(meter.x, meter.y);
 		context.drawImage(meterImg, -mw/2, -mh/2,
 			meter.width, meter.height);
+		context.fillText(songName, meter.x + 50, meter.y + 5);
 		context.restore();
 	}).bind(this);
 
