@@ -104,8 +104,10 @@ input {width:300px;}
 	bottom:0px; 
 	height:30px; 
 	width:100%;
-	background:#FFF; 
+	background:red; 
 }
 #react-main{
-
+	height:1920px;
+	margin:0 auto;
+	background:url(images/react.png);
 }
