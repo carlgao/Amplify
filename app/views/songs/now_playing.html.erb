@@ -95,10 +95,10 @@ var ratingView = function() {
 				// find a new rotation angle		
 				var angle = Math.atan((height-rwl+rwl/2 - touch.pageY)/(touch.pageX - width/2)) - Math.PI/2;
 				// find if it's going clockwise or counterclockwise
-				if(-1*rr > angle) { // counterclockwise
-					nr --;
+				if(-1*rr > angle) { // clockwise
+					nr = (nr < 100) ? nr+1 : 100;
 				} else {
-					nr ++;
+					nr = (nr > 0) ? nr-1 : 0;
 				}
 				if(touch.pageX - width/2 < 0) {
 					angle = angle - Math.PI;
