@@ -201,7 +201,11 @@ class SongsController < ApplicationController
     if hotcount == nil
       hotcount = 0
     end
-    calc_hotness = (new_hotness + hotness * hotcount) / (hotcount + 1)
+    if hotcount > 20
+      calc_hotness = (hotness * (hotcount - 1) + new_hotness) / (hotcount)
+    else
+      calc_hotness = (new_hotness + hotness * hotcount) / (hotcount + 1)
+    end
     @now_playing_song.update_attributes( { :hotness => calc_hotness } )
     @now_playing_song.increment( :hotcount )
     @now_playing_song.save
