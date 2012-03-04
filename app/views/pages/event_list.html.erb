@@ -68,7 +68,7 @@
         }  
   
         function handle_geolocation_query(position){  
-            alert('Lat: ' + position.coords.latitude + ' ' +  
+            console.log('Lat: ' + position.coords.latitude + ' ' +  
                   'Lon: ' + position.coords.longitude);  
 
         Eventbrite({'app_key': "CLKWW6EUW2BJSOK4V2", 'user_key':"131598079919974107092"}, function(eb_client){ //eb_client interaction goes here... 
@@ -84,7 +84,7 @@
                   console.log(response.events[e].event);
                   t = response.events[e].event.title;
                   var eventItem = $("<li>");
-                  eventItem.html("<a href="/">" + t + "</a>");
+                  eventItem.html('<a href="/">' + t + "</a>");
                   console.log(eventItem);
                   list.append(eventItem);
                   console.log(list);
