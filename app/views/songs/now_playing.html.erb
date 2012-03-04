@@ -92,6 +92,22 @@ var ratingView = function() {
 
 
 
+
+	// create indicator array and populate it
+	var indicators = new Array(11);
+	// the points are from -4*PI/5 - 4*PI/5
+	for(var i = 0; i < 11; i++) {
+		var radius = rwl * 1.2;
+		id = new cObject();
+		id.visible = true;
+		id.width = 2;
+		id.height = 2;
+		var angle = (i/10) * 2*Math.PI/(5/4) - Math.PI/(5/4);
+		id.x = Math.cos(angle) * radius;
+		id.y = Math.sin(angle) * radius;
+		id.color = "rgba(0,0,0,1)";
+		indicators[i] = id;
+	}
 	
 	// CALLBACK FUNCTIONS
 
@@ -103,6 +119,13 @@ var ratingView = function() {
 		ratingWheel.draw();
 		meter.draw();
 		needle.draw();
+		for(var i = 0; i < 11; i++) {
+			var id = indicators[i];
+			context.save();
+			context.fillStyle = id.color;
+			context.arc(id.x,id.y,id.width*2,0,Math.PI*2,true); // Outer circle  
+			context.restore();
+		}
 	}).bind(this), 1000/30);	// 30 fps
 
 	// touch handlers
