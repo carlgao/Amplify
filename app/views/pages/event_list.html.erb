@@ -77,31 +77,24 @@
             var params = {'within': "10", 'latitude': position.coords.latitude, 'longitude': position.coords.longitude};
             // make a client request, provide another callback to handle the response data
             eb_client.event_search( params, function( response ){
-              var table = $("#table");
-              console.log(table);
+              var list = $("<ol>");
+              console.log(list);
               for (e in response.events) {
                 if (e > 0) {
                   console.log( response.events[e] );
                   console.log(response.events[e].event);
                   t = response.events[e].event.title;
-                  btn = $("<button>");
-                  btn.html(t);
-                  btn.addClass("btn");
-                  btn.addClass("primary");
-                  var eventItem = $("<tr>");
-                  var a = $("<a>");
-                  a.attr("href", "/");
-                  a.append(btn);
-                  eventItem.append(a);
-                  //eventItem.append('<a href="/">' + btn + "</a>");
+                  var eventItem = $("<li>");
+                  eventItem.html('<a href="/images/Look_In.png">' + t + "</a>");
                   console.log(eventItem);
-                  table.append(eventItem[0]);
-                  console.log(table);
+                  list.append(eventItem);
+                  console.log(list);
                   //console.log(response.events[e].event.venue);
                   //console.log(response.events[e].event.venue.name);
                 }
 
               }
+              $(".event_list").append(list);
               }); 
             });
         }  
@@ -132,16 +125,12 @@ function readData(data) {
 
 
 
-<h1>Listing requests</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Hotness</th>
-  </tr>
-</table>
 
 
+<div class="event_list">
+  <div>  
+  </div>
+</div>
 </body>
 
 </html>
