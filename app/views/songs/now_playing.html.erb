@@ -68,7 +68,7 @@ document.body.onload = function() {
 		case 1:
 			var touch = event.targetTouches[0];
 			// figure out if the touch is within bounds of the rating wheel
-			if(ratingWheel.isHovering(touch.pageX-rwl/2, touch.pageY-rwl/2)) {
+			if(ratingWheel.isHovering(touch.pageX+rwl/2, touch.pageY+rwl/2)) {
 				// find a new rotation angle		
 				var angle = Math.atan((height-rwl+rwl/2 - touch.pageY)/(touch.pageX - width/2)) - Math.PI/2;
 				if(touch.pageX - width/2 < 0) {
