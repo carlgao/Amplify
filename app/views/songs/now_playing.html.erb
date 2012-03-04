@@ -65,7 +65,7 @@
 	needle.draw = (function() {
 		context.save();
 		context.translate(needle.x, needle.y);
-		context.rotate(nr);
+		context.rotate(this.nr);
 		context.drawImage(needleImg, -nw/2, -nh+2,
 			needle.width, needle.height);
 		context.restore();
@@ -73,7 +73,6 @@
 	
 	// CALLBACK FUNCTIONS
 	this.nr = 0; // needle rotation
-
 
 	var rr = 0;	// wheel rotation
 	// starts timed draw events
