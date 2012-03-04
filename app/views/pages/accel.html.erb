@@ -41,13 +41,13 @@
     setInterval(function () {
         var change = Math.abs(x1-x2+y1-y2+z1-z2);
 
-        document.getElementById("pos").innerHTML = "change= "+change;
+        document.getElementById("pos").innerHTML = "change= "+Math.round(change*10);
 
         // Update new position
         x2 = x1;
         y2 = y1;
         z2 = z1;
-    }, 150);
+    }, 1000);
 };
 
 
@@ -56,7 +56,7 @@
  
 
   <div id="content"> 
-      <div id="pos" style = "font:30px" >x=0<br />y=0</div> 
+      <div id="pos" style="font-size:1000%" ></div> 
       </div> 
 
   </div> 
