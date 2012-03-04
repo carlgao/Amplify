@@ -49,8 +49,8 @@
     } else {
     	window.ondevicemotion = function(event) {
     	 
-    		ax = event.accelerationIncludingGravity.x;
-    		ay = event.accelerationIncludingGravity.y;
+    		ax = event.accelerationGravity.x;
+    		ay = event.accelerationGravity.y;
     	}
      
     	setInterval(function() {
