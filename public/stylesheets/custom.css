@@ -1,5 +1,5 @@
 body { 
-  background:url(public/images/background.png);
+  background:url(../public/images/background.png);
 }
 #bg{
   position: fixed;
