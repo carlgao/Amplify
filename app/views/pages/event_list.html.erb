@@ -30,8 +30,8 @@
 </style>
 <script type='text/javascript'>
 
-        jQuery(window).ready(function(){  
-           initiate_geolocation;  
+         jQuery(window).ready(function(){  
+            jQuery("#btnInit").click(initiate_geolocation);  
         });  
   
         function initiate_geolocation() {  
@@ -42,39 +42,14 @@
             alert('Lat: ' + position.coords.latitude + ' ' +  
                   'Lon: ' + position.coords.latitude);  
         }  
-  
- /*   $(window).load(function () {
-        /* 
-        Eventbrite Examples - event_search
-
-        If you copy this code, please set your own API Key in the example below.
-        You can request one here: http://www.eventbrite.com/api/key
-        
-
-        Eventbrite({ 'app_key': "5HWLFDG4ZMAT4HSRLW" }, function (eb) {
-
-            // define a few parameters to pass to the API
-            var options = {
-                //'city': "San Francisco"
-                //, 'region': "CA"
-                'within':"3",
-                'keywords':"Club dance",
-                'city':"New York",
-                'date':"This month" 
-            };
-
-            // provide a callback to display the response data:
-            eb.event_search(options, function (response) {
-                $('.event_list').html(eb.utils.eventList(response, eb.utils.eventListRow));
-            });
-        });
-    });
-    */
 
 
 </script>
 
 
 <div class="event_list"><a href="http://eventbrite.com">Loading Events...</a></div>
+    <div>  
+      <button id="btnInit" >Find my location</button>  
+    </div>
 </body>
 </html>
