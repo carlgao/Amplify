@@ -100,6 +100,10 @@ var ratingView = function() {
 		needle.draw();
 		for(var i = 0; i < 11; i++) {
 			var id = indicators[i];
+			context.save();
+			context.fillStyle = id.color;
+			context.arc(id.x,id.y,id.width*2,0,Math.PI*2,true); // Outer circle  
+			context.restore();
 		}
 	}).bind(this), 1000/30);	// 30 fps
 
