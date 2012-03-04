@@ -23,16 +23,41 @@ document.body.onload = function() {
 	ratingWheel.x = width/2 - 450/2;
 	ratingWheel.y = 430;
 	ratingWheel.draw = (function() {
-		context.drawImage(ratingWheelImg, ratingWheel.x, ratingWheel.y, 
+		context.save();
+		context.translate(ratingWheel.x-450/2, ratingWheel.y-450/2);
+		context.rotate(r);
+		context.drawImage(ratingWheelImg, -450/2, -450/2, 
 				ratingWheel.width, ratingWheel.height);
+		context.restore();
 	}).bind(this);
+
+	var r = 0;	// rotation
 
 	// starts timed draw events
 	setInterval((function() {
 		context.clearRect(0,0,width,height);	// clear the rectangle first
 		context.drawImage(backgroundImg, 0, 0, width, height);
+
 		ratingWheel.draw();
 	}).bind(this), 1000/30);	// 30 fps
+
+	// touch handlers
+	canvas.addEventListener("touchmove", function(event) {
+		// handle one finger touches
+		switch(event.targetTouches.length) {
+		case 1:
+			var touch = event.targetTouches[0];
+			// find a new rotation angle		
+			var angle = Math.atan((430+450/2 - touch.pageY)/(touch.pageX - width/2)) - Math.PI/2;
+			if(touch.pageX - width/2 < 0) {
+				angle = angle - Math.PI;
+			}
+			r = -1*angle*360/(2*Math.PI);
+			break;
+		default:
+			break;
+		}
+	}, false);
 };
 
 </script>
