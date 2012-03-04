@@ -72,6 +72,27 @@ var ratingView = function() {
 		context.restore();
 	}).bind(this);
 
+
+
+  $.ajax({
+    url: "/songs/get_hotness",
+    type: "GET",
+    dataType: "text"
+  })
+  .success(function(response) {
+    console.log("get hotness success");
+    console.log(response);
+    updateRating(response);
+  })
+  .fail(function(response) {
+    console.log("get hotness fail");
+    console.log(response);
+  })
+  ;
+
+
+
+
 	// create indicator array and populate it
 	var indicators = new Array(11);
 	// the points are from -4*PI/5 - 4*PI/5
@@ -81,9 +102,9 @@ var ratingView = function() {
 		id.visible = true;
 		id.width = 2;
 		id.height = 2;
-		var angle = (i/10) * 2*Math.PI/(5/4) - Math.PI/(5/4);
-		id.x = Math.cos(angle) * radius;
-		id.y = Math.sin(angle) * radius;
+		var angle = (i/10) * 2*Math.PI/(5/4) - Math.PI/(5/4) + Math.PI/2;
+		id.x = Math.cos(angle) * radius + ratingWheel.x;
+		id.y = Math.sin(angle) * radius + ratingWheel.y;
 		id.color = "rgba(0,0,0,1)";
 		indicators[i] = id;
 	}
@@ -100,6 +121,10 @@ var ratingView = function() {
 		needle.draw();
 		for(var i = 0; i < 11; i++) {
 			var id = indicators[i];
+			context.save();
+			context.fillStyle = id.color;
+			context.arc(id.x,id.y,id.width*2,0,Math.PI*2,true); // Outer circle  
+			context.restore();
 		}
 	}).bind(this), 1000/30);	// 30 fps
 
@@ -123,7 +148,23 @@ var ratingView = function() {
 				} else {
 					rating = (rating > 0) ? rating-1 : 0;
 				}
-				updateRating(rating);
+
+                $.ajax({
+                  url: "/songs/hotness",
+                  type: "POST",
+                  data: {hotness : rating},
+                  dataType: "text"
+                })
+                .success(function(response) {
+                    console.log("success");
+                    console.log(response);
+                    })
+                .fail(function(response) {
+                    console.log("fail");
+                    console.log(response);
+                    })
+                ;
+
 				rr = -1*angle;
 			} else {	// if it's not hovering any objects, lets say it's a swipe
 				
