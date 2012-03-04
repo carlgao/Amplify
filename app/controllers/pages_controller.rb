@@ -17,4 +17,7 @@ class PagesController < ApplicationController
 
   def event_list
   end
+
+  def look
+  end
 end
