@@ -189,4 +189,9 @@ class SongsController < ApplicationController
       #format.js { render(:text => song_id + '; ' + '; messages: ' + messages) }
     #end
   #end
+  
+  def hotness
+    #@now_playing_song = Song.where("playing=?", true).first
+    #@now_playing_song.update_attributes( { :hotness => false } );
+  end
 end
