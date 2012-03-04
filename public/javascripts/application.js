@@ -3,6 +3,26 @@
 
 $(document).ready(function(){
   console.log("ready");
+
+  
+  /*change = 200;*/
+  /*$.ajax({*/
+  /*url: "/songs/hotness",*/
+  /*type: "POST",*/
+  /*data: {hotness : change},*/
+  /*dataType: "text"*/
+  /*})*/
+  /*.success(function(response) {*/
+  /*console.log("success");*/
+  /*console.log(response);*/
+  /*})*/
+  /*.fail(function(response) {*/
+  /*console.log("fail");*/
+  /*console.log(response);*/
+  /*})*/
+  /*;*/
+
+
   /*generateWord();*/
   /*var browserType = getInternetExplorerVersion();*/
   /*if (browserType > -1) {*/
