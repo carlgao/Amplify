@@ -3,6 +3,7 @@
 document.body.onload = onload;
 function onload() = {
 	var canvas = document.getElementById("paper").getContext("2d");
+
 	canvas.width = 450;
 	canvas.height = 960;
 	var ratingWheel = new cObject();
@@ -42,6 +43,6 @@ function onload() = {
 <% end %>
 </table>
 <ul data-role="pagination">
-	<li class="ui-pagination-prev"><a href="/pages/gallery1.html">Prev</a></li>
-	<li class="ui-pagination-next"><a href="/pages/song_request.html">Next</a></li>
+	<li class="ui-pagination-prev"><a href="#/pages/gallery1.html">Prev</a></li>
+	<li class="ui-pagination-next"><a href="#/pages/song_request.html">Next</a></li>
 </ul>
