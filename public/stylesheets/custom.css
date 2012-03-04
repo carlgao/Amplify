@@ -10,30 +10,6 @@ body {
   z-index: -1;
 }
 
-#bg-lin-kobe{
-  /*position: absolute;*/
-  /*top:100px;*/
-  /*left: 0;*/
-  /*right: 0;*/
-  /*margin: 0px auto;*/
-  /*width:800px;*/
-  width:100%;
-  margin-bottom:50px;
-  /*z-index: -1;*/
-}
-
-#bg-linferno{
-  width:100%;
-  margin-bottom:50px;
-  /*position: absolute;*/
-  /*top:700px;*/
-  /*left: 0;*/
-  /*right: 0;*/
-  /*margin: 0px auto;*/
-  /*width:800px;*/
-  /*z-index: -1;*/
-}
-
 #home {
   position:absolute;
   left:0px;
@@ -57,7 +33,6 @@ body {
   width:140px;
   height:50px;
 }
-
 
 
 #title {
@@ -121,3 +96,16 @@ box-shadow: 1px 1px 10px #000;
 #ranking-page {display:none;}
 
 input {width:300px;}
+
+/****** React page CSS Stylings ****/
+#react-nav{
+	position:fixed;
+	left:0px; 
+	bottom:0px; 
+	height:30px; 
+	width:100%;
+	background:#FFF; 
+}
+#react-main{
+
+}
