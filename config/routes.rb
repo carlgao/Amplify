@@ -21,6 +21,7 @@ Linword::Application.routes.draw do
   get "pages/get_word"
   get "pages/gallery1"
   get "pages/send_request"
+  get "pages/accel"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
