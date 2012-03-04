@@ -58,9 +58,9 @@ document.body.onload = function() {
 		default:
 			break;
 		}
+		// stop the touches from moving the screen
+		event.preventDefault();
 	}, false);
-
-	event.preventDefault();
 };
 
 </script>
