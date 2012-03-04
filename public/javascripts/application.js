@@ -21,10 +21,120 @@ $(document).ready(function(){
   })
   ;
 
-  $("#song-input").click(function() {
-    var newSong = $.create("audio");
-    var songSource = $.create("source");
+  $("audio").click(function() {
+    /*setTimeout($.proxy( function() {console.log(this.paused);}), this,500), this));*/
+    setTimeout(
+        $.proxy(function() {
+          console.log(this.paused);
+          songId = $(this).attr('id');
+          console.log(songId);
+          if (this.paused) {
+
+          } else {
+            $.ajax({
+              url: "/songs/play",
+              type: "POST",
+              data: {song_id : songId},
+              dataType: "text"
+            })
+            .success(function(response) {
+              console.log("success");
+              console.log(response);
+            })
+            .fail(function(response) {
+              console.log("fail");
+              console.log(response);
+            })
+            ;
+          }
+        }, this), 500
+    );
+  });
+
+
+  $("#song-add").click(function() {
+    var src = $("#song-link").val();
+    var title = $("#song-title").val();
+    console.log(src);
+    console.log(title);
+
+    /*$.ajax({*/
+    /*url: "/songs",*/
+    /*type: "POST",*/
+    /*data: { 'song%5name%5D' : title, commit : "Create Song"},*/
+    /**//*song%5Bname%5D:*/
+    /**//*song%5Brequests%5D:*/
+    /**//*song%5Bupvotes%5D:*/
+    /**//*song%5Bdownvotes%5D:*/
+    /**//*song%5Bplaying%5D:*/
+    /**//*song%5Bsource%5D:*/
+    /**//*commit:Update Song*/
+    /*dataType: "text"*/
+    /*})*/
+    /*.success(function(response) {*/
+    /*alert("success");*/
+    /*console.log(response);*/
+    /*})*/
+    /*.fail(function(response) {*/
+    /*alert("fail")*/
+    /*console.log(response);*/
+    /*})*/
+    /*;*/
+
+    var newSong = $("<div>");
+    newSong.addClass("song");
+    var songTitle = $("<div>");
+    songTitle.html(title);
+    songTitle.addClass("song-title");
+    songTitle.text(title);
+    var songAudio = $("<audio>");
+    songAudio.attr("controls", "controls");
+    /*songAudio.attr("autoplay", "true");*/
+
+    /*songAudio.set("onplay", function() {*/
+    /*alert( "sound played" );*/
+    /*});*/
+
+    var songSource = $("<source>");
+    songSource.attr("src", src);
+
+    songAudio.html("Your browser doesn't support HTML5 audio. Upgrade your browser!");
+    songAudio.prepend(songSource);
+
+    songAudio.click(function() {
+      /*setTimeout($.proxy( function() {console.log(this.paused);}), this,500), this));*/
+      setTimeout(
+          $.proxy(function(){
+            console.log(this.paused);
+            if (this.paused) {
+              
+            } else {
+              $.ajax({
+                url: "/songs/play",
+                type: "POST",
+                data: {song_id : songId},
+                dataType: "text"
+              })
+              .success(function(response) {
+                alert("success");
+                console.log(response);
+                location.reload();
+              })
+              .fail(function(response) {
+                alert("fail")
+                console.log(response);
+              })
+              ;
+            }
+          }, this), 500
+      );
+    });
+
+    newSong.append(songTitle);
+    newSong.append(songAudio);
+    $("#songs").prepend("<br />");
     $("#songs").prepend(newSong);
+    
   });
    
 
@@ -92,6 +202,8 @@ $(document).ready(function(){
   });
 
 });
+
+
 
 function generateWord(){
   $.ajax({

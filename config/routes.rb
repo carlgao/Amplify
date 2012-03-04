@@ -11,13 +11,15 @@ Linword::Application.routes.draw do
       get :now_playing
       post :vote
       get :dj
+      post :play
+      post :not_play
     end
   end
 
   get "pages/home"
   #root :to => "pages#home"
   get "pages/song_request"
-  root :to => "pages#song_request"
+  root :to => "songs#now_playing"
   get "pages/get_word"
   get "pages/gallery1"
   get "pages/send_request"

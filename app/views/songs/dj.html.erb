@@ -2,7 +2,7 @@
 
 <div id="home-box" class="box">
   <div id="title">DJ Station</div>
-<h2>Now Playing</h2>
+<!--<h2>Now Playing</h2>
 <% song = @now_playing_song %>
 <% if song == nil %>
   <tr>No songs currently playing</tr>
@@ -28,39 +28,97 @@
     <td><%= song.playing %></td>
     <td><%= link_to 'Show', song %></td>
     <td><%= link_to 'Edit', edit_song_path(song) %></td>
-    <!--<td><%= link_to 'Destroy', song, :confirm => 'Are you sure?', :method => :delete %></td>-->
+    <td><%= link_to 'Destroy', song, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-<div id="songs">
+<br />
+<br />-->
+<h2>Song List</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Requests</th>
+    <th>Upvotes</th>
+    <th>Downvotes</th>
+    <th>Now playing</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @songs.each do |song| %>
+  <tr>
+    <td><%= song.name %></td>
+    <td><%= song.requests %></td>
+    <td><%= song.upvotes %></td>
+    <td><%= song.downvotes %></td>
+    <td><%= song.playing %></td>
+    <td><%= link_to 'Show', song %></td>
+    <td><%= link_to 'Edit', edit_song_path(song) %></td>
+    <td><%= link_to 'Destroy', song, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <tr>
+  <td>
+    <div class="song">
+      <!--<div class="song-title"><%= song.name %></div>-->
+      <audio id="<%= song.id %>" controls="controls">
+      <source src="<%= song.source %>" type="audio/mpeg" />
+      Your browser does not support the audio element.
+      </audio>
+    </div>
+  </td>
+  <!--<td><%= song.source %></td>-->
+  </tr>
+<% end %>
+</table>
   
   <h2>New Song</h2>
   Title: <br />
-  <input id="song-input" placeholder="Party Rock Anthem"/> <!--TODO: use echo nest to complete title--> <br />
+  <input id="song-title" placeholder="Party Rock Anthem"/> <!--TODO: use echo nest to complete title--> <br />
   MP3 link: <br />
   <input id="song-link" placeholder="http://example.com/partyrock.mp3"/> <br />
   <br />
 
-  <button id="request-btn" class="btn primary">Add New Song</button>
+  <button id="song-add" class="btn primary">Add New Song</button>
   <br />
   <br />
   <br />
 
+
+
+
+
+
+
+<%= link_to 'New Song', new_song_path %>
+
+
+
+
+
+
+
+
+
+
+<div id="songs">
+<div class="song">
 <div class="song-title">Pitbull - Give me everything</div>
-<br />
 <audio controls="controls">
   <source src="http://dc100.4shared.com/img/1104092048/28e09647/dlink__2Fdownload_2FxhRfxFKL_3Ftsid_3D20120303-13812-26d0ac80/preview.mp3" type="audio/mpeg" />
   Your browser does not support the audio element.
 </audio>
+</div>
 
 <br />
-<br />
+<div class="song">
 <div class="song-title">Rick Astley - Never gonna give you up</div>
-<br />
 <audio controls="controls">
   <source src="http://dc441.4shared.com/img/1184185856/605e02a0/dlink__2Fdownload_2FGcunibQa_3Ftsid_3D20120303-22700-ae071660/preview.mp3" type="audio/mpeg" />
   Your browser does not support the audio element.
 </audio>
+</div>
 
 
 </div>
