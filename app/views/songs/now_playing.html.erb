@@ -1,6 +1,6 @@
 
 <script type="text/javascript">
-document.body.onload = function() {
+ var ratingView = function() {
 	var canvas = document.getElementById("paper");
 	var context = canvas.getContext("2d");
 	var width = 320;
@@ -26,7 +26,7 @@ document.body.onload = function() {
 	ratingWheel.draw = (function() {
 		context.save();
 		context.translate(ratingWheel.x, ratingWheel.y);
-		context.rotate(r);
+		context.rotate(rr);
 		context.drawImage(ratingWheelImg, -rwl/2, -rwl/2, 
 				ratingWheel.width, ratingWheel.height);
 		context.restore();
@@ -65,13 +65,17 @@ document.body.onload = function() {
 	needle.draw = (function() {
 		context.save();
 		context.translate(needle.x, needle.y);
+		context.rotate(nr);
 		context.drawImage(needleImg, -nw/2, -nh+2,
 			needle.width, needle.height);
 		context.restore();
 	}).bind(this);
 	
 	// CALLBACK FUNCTIONS
-	var r = 0;	// rotation
+	var nr = 0; // needle rotation
+
+
+	var rr = 0;	// wheel rotation
 	// starts timed draw events
 	setInterval((function() {
 		context.clearRect(0,0,width,height);	// clear the rectangle first
@@ -107,6 +111,13 @@ document.body.onload = function() {
 	}, false);
 };
 
+var updateRating = (function(rating) {
+	// scale rating from 0 - 100 to -PI/3 - PI/3
+	nr = (rating/100) * 2*PI/3 - PI/3;
+}).bind(ratingView);
+
+document.body.onload = ratingView;
+updateRating(90);
 </script>
 
 <canvas id="paper"></canvas>
