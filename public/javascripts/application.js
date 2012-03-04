@@ -3,7 +3,22 @@
 
 $(document).ready(function(){
   console.log("ready");
+  $.ajax({
+    url: "/songs/get_hotness",
+    type: "GET",
+    dataType: "text"
+  })
+  .success(function(response) {
+    console.log("get hotness success");
+    console.log(response);
+  })
+  .fail(function(response) {
+    console.log("get hotness fail");
+    console.log(response);
+  })
+  ;
   
+  $("#btnInit").click(initiate_geolocation);  
   /*change = 200;*/
   /*$.ajax({*/
   /*url: "/songs/hotness",*/
@@ -30,15 +45,6 @@ $(document).ready(function(){
   /*} else {*/
   /*$(".btn").click(generateWord);*/
   /*}*/
-  $.ajax({
-    url: "http://developer.echonest.com/api/v4/song/search?api_key=U2IMNUKBKK0RPHBJY&format=json&results=15&artist=pitbull",
-    type: "GET",
-    dataType: "json"
-  })
-  .success(function(response) {
-    console.log(response);
-  })
-  ;
 
   $("audio").click(function() {
     /*setTimeout($.proxy( function() {console.log(this.paused);}), this,500), this));*/
@@ -168,6 +174,29 @@ $(document).ready(function(){
     .success(function(response) {
       console.log("success");
       console.log(response);
+      location.reload();
+    })
+    .fail(function(response) {
+      console.log("fail")
+      console.log(response);
+    })
+    ;
+    $("#autocomplete").val("");
+  });
+
+  $(".request-vote-btn").click(function() {
+    requestId = $(this).attr('id');
+    console.log("Clicked request " + requestId);
+    $.ajax({
+      url: "/requests/vote",
+      type: "POST",
+      data: {request_id : requestId},
+      dataType: "text"
+    })
+    .success(function(response) {
+      console.log("success");
+      console.log(response);
+      location.reload();
     })
     .fail(function(response) {
       console.log("fail")
@@ -175,7 +204,6 @@ $(document).ready(function(){
     })
     ;
   });
-
 
   $(".upvote-btn").click(function() {
     songId = $(this).attr('id');
@@ -187,12 +215,12 @@ $(document).ready(function(){
       dataType: "text"
     })
     .success(function(response) {
-      alert("success");
+      console.log("success");
       console.log(response);
       location.reload();
     })
     .fail(function(response) {
-      alert("fail")
+      console.log("fail")
       console.log(response);
     })
     ;
@@ -208,12 +236,12 @@ $(document).ready(function(){
       dataType: "text"
     })
     .success(function(response) {
-      alert("success");
+      console.log("success");
       console.log(response);
       location.reload();
     })
     .fail(function(response) {
-      alert("fail")
+      console.log("fail")
       console.log(response);
     })
     ;
@@ -257,6 +285,14 @@ function onKeyPress(){
       );
 }
 
+function initiate_geolocation() { 
+  navigator.geolocation.getCurrentPosition(handle_geolocation_query);  
+}  
+
+function handle_geolocation_query(position){  
+  alert('Lat: ' + position.coords.latitude + ' ' +  
+      'Lon: ' + position.coords.longitude);  
+}  
 
 function generateWord(){
   $.ajax({

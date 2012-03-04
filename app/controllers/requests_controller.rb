@@ -82,6 +82,7 @@ class RequestsController < ApplicationController
   end
 
   def request_song
+    @requests = Request.all
   end
 
   def post_request
@@ -97,4 +98,21 @@ class RequestsController < ApplicationController
       format.js { render(:text => n ) }
     end
   end
+
+  def vote
+    request_id = params['request_id']
+    @request = Request.find(request_id)
+    @request.increment(:score)
+
+    messages = 'none!'
+    if @request.save
+      messages = 'save successful'
+    else
+      messages = 'save failed'
+    end
+    respond_to do |format|
+      format.js { render(:text => request_id + '; ' + '; messages: ' + messages) }
+    end
+  end
+
 end
