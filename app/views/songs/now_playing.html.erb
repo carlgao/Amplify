@@ -43,7 +43,7 @@ document.body.onload = function() {
 	}).bind(this), 1000/30);	// 30 fps
 
 	// touch handlers
-	canvas.addEventListener("touchmove", function(event) {
+	document.addEventListener("touchmove", function(event) {
 		// handle one finger touches
 		switch(event.targetTouches.length) {
 		case 1:
