@@ -81,33 +81,33 @@ class SongsController < ApplicationController
     end
   end
 
-  def send_request
-    p = params[:name]
-    respond_to do |format|
-      format.js { render(:json => p) }
-    end
-  end
+  #def send_request
+    #p = params[:name]
+    #respond_to do |format|
+      #format.js { render(:json => p) }
+    #end
+  #end
 
-  def post_request
+  #def post_request
 
-    @song = Song.new(params[:song])
+    #@song = Song.new(params[:song])
 
-    respond_to do |format|
-      if @song.save
-        format.html { redirect_to(@song, :notice => 'Song was successfully requested.') }
-        format.xml  { render :xml => @song, :status => :created, :location => @song }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }
-      end
-    end
+    #respond_to do |format|
+      #if @song.save
+        #format.html { redirect_to(@song, :notice => 'Song was successfully requested.') }
+        #format.xml  { render :xml => @song, :status => :created, :location => @song }
+      #else
+        #format.html { render :action => "new" }
+        #format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }
+      #end
+    #end
 
 
-    p = params['name']
-    respond_to do |format|
-      format.js { render(:text => p) }
-    end
-  end
+    #p = params['name']
+    #respond_to do |format|
+      #format.js { render(:text => p) }
+    #end
+  #end
 
   def now_playing
     

@@ -83,4 +83,18 @@ class RequestsController < ApplicationController
 
   def request_song
   end
+
+  def post_request
+    n = params['name']
+    @request = Request.where("name=?", n).first
+    if @request != nil
+      @request.increment(:score)
+    elsif
+      @request = Request.new(:name => n, :score => 1) 
+    end
+    @request.save
+    respond_to do |format|
+      format.js { render(:text => n ) }
+    end
+  end
 end

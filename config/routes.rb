@@ -5,13 +5,14 @@ Linword::Application.routes.draw do
   resources :requests do
     collection do
       get :request_song
+      post :post_request
     end
   end
 
   resources :songs do
     collection do
-      get :send_request
-      post :post_request
+      #get :send_request
+      #post :post_request
       get :now_playing
       post :vote
       get :dj

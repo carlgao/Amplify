@@ -135,12 +135,12 @@ $(document).ready(function(){
                 dataType: "text"
               })
               .success(function(response) {
-                alert("success");
+                console.log("success");
                 console.log(response);
                 location.reload();
               })
               .fail(function(response) {
-                alert("fail")
+                console.log("fail")
                 console.log(response);
               })
               ;
@@ -158,19 +158,19 @@ $(document).ready(function(){
    
 
   $("#request-btn").click(function() {
-    requestText = $("#request-input").val();
+    requestText = $("#autocomplete").val();
     $.ajax({
-      url: "/songs/post_request",
+      url: "/requests/post_request",
       type: "POST",
       data: {name : requestText},
       dataType: "text"
     })
     .success(function(response) {
-      alert("success");
+      console.log("success");
       console.log(response);
     })
     .fail(function(response) {
-      alert("fail")
+      console.log("fail")
       console.log(response);
     })
     ;
