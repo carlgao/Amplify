@@ -20,6 +20,12 @@ $(document).ready(function(){
     console.log(response);
   })
   ;
+
+  $("#song-input").click(function() {
+    var newSong = $.create("audio");
+    var songSource = $.create("source");
+    $("#songs").prepend(newSong);
+  });
    
 
   $("#request-btn").click(function() {

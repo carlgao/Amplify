@@ -12,4 +12,7 @@ class PagesController < ApplicationController
   def accel
   end
 
+  def meter
+  end
+
 end
