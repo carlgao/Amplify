@@ -76,17 +76,20 @@
             var params = {'within': "10", 'latitude': position.coords.latitude, 'longitude': position.coords.longitude};
             // make a client request, provide another callback to handle the response data
             eb_client.event_search( params, function( response ){
-              var list = $("ol");
+              var list = $("<ol>");
+              console.log(list);
               for (e in response.events) {
                 if (e > 0) {
                   console.log( response.events[e] );
                   console.log(response.events[e].event);
                   t = response.events[e].event.title;
-                  var eventItem = $("li");
-                  eventItem.html(t);
+                  var eventItem = $("<li>");
+                  eventItem.html("<a href="/">" + t + "</a>");
+                  console.log(eventItem);
                   list.append(eventItem);
-                  console.log(response.events[e].event.venue);
-                  console.log(response.events[e].event.venue.name);
+                  console.log(list);
+                  //console.log(response.events[e].event.venue);
+                  //console.log(response.events[e].event.venue.name);
                 }
 
               }
