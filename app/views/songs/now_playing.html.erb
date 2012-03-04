@@ -75,6 +75,23 @@ setInterval(function () {
 	  console.log("get hotness fail");
 	  console.log(response);
 	});
+
+
+	// also use wheel ratings as hotness
+	$.ajax({
+	  url: "/songs/hotness",
+	  type: "POST",
+	  data: {hotness : rating},
+	  dataType: "text"
+	})
+	.success(function(response) {
+		console.log("success");
+		console.log(response);
+		})
+	.fail(function(response) {
+		console.log("fail");
+		console.log(response);
+		});
 }, 1000);
 
 var nr = 0;	// needle rotation angle
@@ -238,20 +255,6 @@ var ratingView = function() {
 					rating = (rating > 0) ? rating-1 : 0;
 				}
 
-                $.ajax({
-                  url: "/songs/hotness",
-                  type: "POST",
-                  data: {hotness : rating},
-                  dataType: "text"
-                })
-                .success(function(response) {
-                    console.log("success");
-                    console.log(response);
-                    })
-                .fail(function(response) {
-                    console.log("fail");
-                    console.log(response);
-                    });
 				rr = -1*angle;
 			} else {	// if it's not hovering any objects, lets say it's a swipe
 				
