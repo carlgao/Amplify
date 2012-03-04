@@ -3,9 +3,11 @@
 document.body.onload = function() {
 	var canvas = document.getElementById("paper");
 	var context = canvas.getContext("2d");
+	var width = 640;
+	var height = 960;
 
-	canvas.width = 450;
-	canvas.height = 960;
+	canvas.width = width;
+	canvas.height = height;
 
 	var ratingWheelImg = new Image();
 	ratingWheelImg.onload = function() {};
@@ -14,7 +16,7 @@ document.body.onload = function() {
 	var ratingWheel = new cObject();
 	ratingWheel.width = 450;
 	ratingWheel.height = 450;
-	ratingWheel.x = 640/2 - 450/2;
+	ratingWheel.x = width/2 - 450/2;
 	ratingWheel.y = 430;
 	ratingWheel.draw = (function() {
 		context.drawImage(ratingWheelImg, ratingWheel.x, ratingWheel.y, 
