@@ -1,8 +1,7 @@
 
 <script type="text/javascript">
 
-
-  if (typeof window.DeviceMotionEvent != 'undefined') {
+if (typeof window.DeviceMotionEvent != 'undefined') {
     // Shake sensitivity (a lower number is more)
     var sensitivity = 20;
 
@@ -34,9 +33,7 @@
         .fail(function(response) {
           console.log("fail");
           console.log(response);
-        })
-        ;
-
+        });
 
         // Update new position
         x2 = x1;
@@ -45,29 +42,22 @@
     }, 100);
 }
 
-
-    setInterval(function () {
-        $.ajax({
-          url: "/songs/get_hotness",
-          type: "GET",
-          dataType: "text"
-        })
-        .success(function(response) {
-          console.log("get hotness success");
-          console.log(response);
-          updateRating(response);
-        })
-        .fail(function(response) {
-          console.log("get hotness fail");
-          console.log(response);
-        })
-        ;
-
-    }, 100);
-
-
-
-
+setInterval(function () {
+	$.ajax({
+	  url: "/songs/get_hotness",
+	  type: "GET",
+	  dataType: "text"
+	})
+	.success(function(response) {
+	  console.log("get hotness success");
+	  console.log(response);
+	  updateRating(response);
+	})
+	.fail(function(response) {
+	  console.log("get hotness fail");
+	  console.log(response);
+	});
+}, 100);
 
 var nr = 0;	// needle rotation angle
 var ratingView = function() {
@@ -141,26 +131,20 @@ var ratingView = function() {
 		context.restore();
 	}).bind(this);
 
-
-
-  $.ajax({
-    url: "/songs/get_hotness",
-    type: "GET",
-    dataType: "text"
-  })
-  .success(function(response) {
-    console.log("get hotness success");
-    console.log(response);
-    updateRating(response);
-  })
-  .fail(function(response) {
-    console.log("get hotness fail");
-    console.log(response);
-  })
-  ;
-
-
-
+	$.ajax({
+		url: "/songs/get_hotness",
+		type: "GET",
+		dataType: "text"
+	})
+	.success(function(response) {
+		console.log("get hotness success");
+		console.log(response);
+		updateRating(response);
+	})
+	.fail(function(response) {
+		console.log("get hotness fail");
+		console.log(response);
+	});
 
 	// create indicator array and populate it
 	var indicators = new Array(11);
@@ -231,9 +215,7 @@ var ratingView = function() {
                 .fail(function(response) {
                     console.log("fail");
                     console.log(response);
-                    })
-                ;
-
+                    });
 				rr = -1*angle;
 			} else {	// if it's not hovering any objects, lets say it's a swipe
 				
