@@ -57,7 +57,7 @@ if (typeof window.DeviceMotionEvent != 'undefined') {
         x2 = x1;
         y2 = y1;
         z2 = z1;
-    }, 100);
+    }, 1000);
 }
 
 setInterval(function () {
@@ -75,7 +75,7 @@ setInterval(function () {
 	  console.log("get hotness fail");
 	  console.log(response);
 	});
-}, 100);
+}, 1000);
 
 var nr = 0;	// needle rotation angle
 var ratingView = function() {
