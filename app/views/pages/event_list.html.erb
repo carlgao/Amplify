@@ -72,15 +72,16 @@
                   'Lon: ' + position.coords.longitude);  
         }  
 
-        //$.ajax({ type: "GET",url: "http://www.eventbrite.com/json/event_search?app_key=5HWLFDG4ZMAT4HSRLW&keywords=super%20fun",dataType: "jsonp", success: readData(data) } })
+        //$.ajax({ type: "GET",url: "http://www.eventbrite.com/json/event_search?app_key=5HWLFDG4ZMAT4HSRLW&keywords=super%20fun",dataType: "jsonp", success: readData(data) } )
         console.log("asdff");
-        Eventbrite({'app_key': "CLKWW6EUW2BJSOK4V2", 'user_key':"131598079919974107092"}, function(eb_client){ //eb_client interaction goes here... });
-       // parameters to pass to the API
-var params = {'city': "San Francisco", 'region':'CA'};
+        Eventbrite({'app_key': "CLKWW6EUW2BJSOK4V2", 'user_key':"131598079919974107092"}, function(eb_client){ //eb_client interaction goes here... 
+        // parameters to pass to the API
+        var params = {'city': "San Francisco", 'region':'CA'};
 // make a client request, provide another callback to handle the response data
 eb_client.event_search( params, function( response ){
     console.log( response );
-}); 
+    }); 
+            });
         /*var url = "https://www.eventbrite.com/json/event_search?app_key=CLKWW6EUW2BJSOK4V2&keywords=super%20fun";
 $.getJSON(url, function (data) {
 success: readData(data)
