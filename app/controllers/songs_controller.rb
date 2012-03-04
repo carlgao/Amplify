@@ -201,7 +201,7 @@ class SongsController < ApplicationController
     if hotcount == nil
       hotcount = 0
     end
-    if hotcount > 20
+    if hotcount > 5
       calc_hotness = (hotness * (hotcount - 1) + new_hotness) / (hotcount)
     else
       calc_hotness = (new_hotness + hotness * hotcount) / (hotcount + 1)
