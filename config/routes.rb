@@ -10,6 +10,7 @@ Linword::Application.routes.draw do
       post :post_request
       get :now_playing
       post :vote
+      get :dj
     end
   end
 
