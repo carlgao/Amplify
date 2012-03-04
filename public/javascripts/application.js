@@ -27,6 +27,29 @@ $(document).ready(function(){
     console.log(src);
     console.log(title);
 
+    $.ajax({
+      url: "/songs",
+      type: "POST",
+      data: { 'song%5name%5D' : title, commit : "Create Song"},
+      /*song%5Bname%5D:*/
+      /*song%5Brequests%5D:*/
+      /*song%5Bupvotes%5D:*/
+      /*song%5Bdownvotes%5D:*/
+      /*song%5Bplaying%5D:*/
+      /*song%5Bsource%5D:*/
+      /*commit:Update Song*/
+      dataType: "text"
+    })
+    .success(function(response) {
+      alert("success");
+      console.log(response);
+    })
+    .fail(function(response) {
+      alert("fail")
+      console.log(response);
+    })
+    ;
+
     var newSong = $("<div>");
     newSong.addClass("song");
     var songTitle = $("<div>");
