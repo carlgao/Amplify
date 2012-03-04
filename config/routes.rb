@@ -30,7 +30,7 @@ Linword::Application.routes.draw do
   #root :to => "pages#home"
   get "pages/song_request"
   #root :to => "songs#now_playing"
-  root :to => "pages/event_list"
+  root :to => "pages#event_list"
   get "pages/get_word"
   get "pages/gallery1"
   get "pages/send_request"
