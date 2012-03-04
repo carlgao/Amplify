@@ -13,6 +13,7 @@ Linword::Application.routes.draw do
       get :dj
       post :play
       post :not_play
+      post :hotness
     end
   end
 

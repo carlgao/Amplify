@@ -191,7 +191,13 @@ class SongsController < ApplicationController
   #end
   
   def hotness
-    #@now_playing_song = Song.where("playing=?", true).first
-    #@now_playing_song.update_attributes( { :hotness => false } );
+    new_hotness = params['hotness']
+    @now_playing_song = Song.where("playing=?", true).first
+    hotness = @now_playing_song.hotness
+    hotcount = @now_playing_song.hotcount
+
+    calc_hotness = (new_hotness + hotness * hotcount) / (hotcount + 1)
+    @now_playing_song.update_attributes( { :hotness => calc_hotness } )
+    @now_playing_song.increment( :hotcount )
   end
 end
