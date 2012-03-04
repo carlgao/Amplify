@@ -77,6 +77,7 @@
             // make a client request, provide another callback to handle the response data
             eb_client.event_search( params, function( response ){
               var list = $("ol");
+              console.log(list);
               for (e in response.events) {
                 if (e > 0) {
                   console.log( response.events[e] );
@@ -84,9 +85,11 @@
                   t = response.events[e].event.title;
                   var eventItem = $("li");
                   eventItem.html(t);
+                  console.log(eventItem);
                   list.append(eventItem);
-                  console.log(response.events[e].event.venue);
-                  console.log(response.events[e].event.venue.name);
+                  console.log(list);
+                  //console.log(response.events[e].event.venue);
+                  //console.log(response.events[e].event.venue.name);
                 }
 
               }
