@@ -3,8 +3,8 @@
 document.body.onload = function() {
 	var canvas = document.getElementById("paper");
 	var context = canvas.getContext("2d");
-	var width = 640;
-	var height = 960;
+	var width = 320;
+	var height = 480;
 
 	canvas.width = width;
 	canvas.height = height;
@@ -18,15 +18,16 @@ document.body.onload = function() {
 	ratingWheelImg.src = "/images/vinyl.png";
 
 	var ratingWheel = new cObject();
-	ratingWheel.width = 450;
-	ratingWheel.height = 450;
+	var rwl = 225;
+	ratingWheel.width = rwl;
+	ratingWheel.height = rwl; 
 	ratingWheel.x = width/2;
-	ratingWheel.y = 655;
+	ratingWheel.y = height - rwl;
 	ratingWheel.draw = (function() {
 		context.save();
 		context.translate(ratingWheel.x, ratingWheel.y);
 		context.rotate(r);
-		context.drawImage(ratingWheelImg, -450/2, -450/2, 
+		context.drawImage(ratingWheelImg, -rwl/2, -rwl/2, 
 				ratingWheel.width, ratingWheel.height);
 		context.restore();
 	}).bind(this);
