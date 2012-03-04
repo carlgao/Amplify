@@ -1,61 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The Jeremy Lin Word Generator</title>
+  <title>Amplify</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults, "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" %>
   <%= csrf_meta_tag %>
-  <meta property="fb:app_id" content="237540322999155" />
-  <meta property="og:title" content="Linword"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="/images/lin.jpg"/>
-  <meta property="og:image" content="http://linword.com"/>
-  <meta property="og:site_name" content="Linword"/>
-  <meta property="fb:admins" content="USER_ID"/>
-  <meta property="og:description"
-  content="The Jeremy Lin Word Generator"/>
-  <link rel="image_src" href="/images/lin.jpg" />
-<script type="text/javascript" src="http://platform.tumblr.com/v1/share.js"></script>
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-29203360-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-29228364-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 </head>
 <body>
   <%= yield %>
-
-<script type="text/javascript">
-var pkBaseURL = (("https:" == document.location.protocol) ? "https://orbitaltwo.com/piwik/" : "http://orbitaltwo.com/piwik/");
-document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-</script><script type="text/javascript">
-try {
-var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
-piwikTracker.trackPageView();
-piwikTracker.enableLinkTracking();
-} catch( err ) {}
-</script><noscript><p><img src="http://orbitaltwo.com/piwik/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
-  
 </body>
 </html>

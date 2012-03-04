@@ -80,4 +80,63 @@ class SongsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def send_request
+    p = params[:name]
+    respond_to do |format|
+      format.js { render(:json => p) }
+    end
+  end
+
+  def post_request
+
+    @song = Song.new(params[:song])
+
+    respond_to do |format|
+      if @song.save
+        format.html { redirect_to(@song, :notice => 'Song was successfully requested.') }
+        format.xml  { render :xml => @song, :status => :created, :location => @song }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }
+      end
+    end
+
+
+    p = params['name']
+    respond_to do |format|
+      format.js { render(:text => p) }
+    end
+  end
+
+  def now_playing
+    
+    @now_playing_song = Song.order(:id).last
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @now_playing_song }
+    end
+  end
+  
+  def vote
+    song_id = params['song_id']
+    @song = Song.find(song_id)
+    #@song.update_attributes({:upvotes => 
+    direction = params['direction']
+    if direction == "up"
+      @song.increment(:upvotes)
+    elsif direction == "down"
+      @song.increment(:downvotes)
+    end
+    messages = 'none!'
+    if @song.save
+      messages = 'save successful'
+    else
+      messages = 'save failed'
+    end
+    respond_to do |format|
+      format.js { render(:text => song_id + '; ' + direction + '; messages: ' + messages) }
+    end
+  end
 end

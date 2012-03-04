@@ -3,14 +3,78 @@
 
 $(document).ready(function(){
   console.log("ready");
-  generateWord();
-  var browserType = getInternetExplorerVersion();
-  if (browserType > -1) {
-    alert("You're using an unsupported version of Internet Explorer. Please upgrade to a modern browser, such as Google Chrome or Safari.");
-    $(".btn").click(refresh);
-  } else {
-    $(".btn").click(generateWord);
-  }
+  /*generateWord();*/
+  /*var browserType = getInternetExplorerVersion();*/
+  /*if (browserType > -1) {*/
+  /*alert("You're using an unsupported version of Internet Explorer. Please upgrade to a modern browser, such as Google Chrome or Safari.");*/
+  /*$(".btn").click(refresh);*/
+  /*} else {*/
+  /*$(".btn").click(generateWord);*/
+  /*}*/
+
+  $("#request-btn").click(function() {
+    alert("request");
+    requestText = $("#request-input").val();
+    $.ajax({
+      url: "/songs/post_request",
+      type: "POST",
+      data: {name : requestText},
+      dataType: "text"
+    })
+    .success(function(response) {
+      alert("success");
+      console.log(response);
+    })
+    .fail(function(response) {
+      alert("fail")
+      console.log(response);
+    })
+    ;
+  });
+
+
+  $(".upvote-btn").click(function() {
+    songId = $(this).attr('id');
+    console.log("Clicked song " + songId);
+    $.ajax({
+      url: "/songs/vote",
+      type: "POST",
+      data: {song_id : songId, direction : 'up'},
+      dataType: "text"
+    })
+    .success(function(response) {
+      alert("success");
+      console.log(response);
+      location.reload();
+    })
+    .fail(function(response) {
+      alert("fail")
+      console.log(response);
+    })
+    ;
+  });
+
+  $(".downvote-btn").click(function() {
+    songId = $(this).attr('id');
+    console.log("Clicked song " + songId);
+    $.ajax({
+      url: "/songs/vote",
+      type: "POST",
+      data: {song_id : songId, direction : 'down'},
+      dataType: "text"
+    })
+    .success(function(response) {
+      alert("success");
+      console.log(response);
+      location.reload();
+    })
+    .fail(function(response) {
+      alert("fail")
+      console.log(response);
+    })
+    ;
+  });
+
 });
 
 function generateWord(){
@@ -28,17 +92,17 @@ function generateWord(){
 }
 
 
-function getInternetExplorerVersion()
-// Returns the version of Internet Explorer or a -1
-// (indicating the use of another browser).
-{
-  var rv = -1; // Return value assumes failure.
-  if (navigator.appName == 'Microsoft Internet Explorer')
-  {
-    var ua = navigator.userAgent;
-    var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");
-    if (re.exec(ua) != null)
-      rv = parseFloat( RegExp.$1 );
-  }
-  return rv;
-}
+/*function getInternetExplorerVersion()*/
+/*// Returns the version of Internet Explorer or a -1*/
+/*// (indicating the use of another browser).*/
+/*{*/
+/*var rv = -1; // Return value assumes failure.*/
+/*if (navigator.appName == 'Microsoft Internet Explorer')*/
+/*{*/
+/*var ua = navigator.userAgent;*/
+/*var re  = new RegExp("MSIE ([0-9]{1,}[\.0-9]{0,})");*/
+/*if (re.exec(ua) != null)*/
+/*rv = parseFloat( RegExp.$1 );*/
+/*}*/
+/*return rv;*/
+/*}*/

@@ -1,13 +1,25 @@
 Linword::Application.routes.draw do
 
-  resources :songs
+  #resources :songs
 
   resources :requests
 
+  resources :songs do
+    collection do
+      get :send_request
+      post :post_request
+      get :now_playing
+      post :vote
+    end
+  end
+
   get "pages/home"
-  root :to => "pages#home"
+  #root :to => "pages#home"
+  get "pages/song_request"
+  root :to => "pages#song_request"
   get "pages/get_word"
   get "pages/gallery1"
+  get "pages/send_request"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
