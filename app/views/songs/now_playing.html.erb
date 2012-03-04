@@ -22,7 +22,7 @@ document.body.onload = function() {
 	ratingWheel.width = rwl;
 	ratingWheel.height = rwl; 
 	ratingWheel.x = width/2;
-	ratingWheel.y = height - rwl;
+	ratingWheel.y = height - 2*rwl/3;
 	ratingWheel.draw = (function() {
 		context.save();
 		context.translate(ratingWheel.x, ratingWheel.y);
@@ -36,13 +36,13 @@ document.body.onload = function() {
 	meterImg.src = "/images/meter.png";
 
 	var meter = new cObject();
-	mw = 600;
-	mh = 400;
+	mw = 300;
+	mh = 200;
 	meter.visible = true;
 	meter.width = mw;
 	meter.height = mh;
 	meter.x = width/2;
-	meter.y = 32;
+	meter.y = 16+mh/2;
 	meter.draw = (function() {
 		context.save();
 		context.translate(meter.x, meter.y);
@@ -58,6 +58,7 @@ document.body.onload = function() {
 		context.clearRect(0,0,width,height);	// clear the rectangle first
 		context.drawImage(backgroundImg, 0, 0, width, height);
 		ratingWheel.draw();
+		meter.draw();
 	}).bind(this), 1000/30);	// 30 fps
 
 	// touch handlers
@@ -67,7 +68,7 @@ document.body.onload = function() {
 		case 1:
 			var touch = event.targetTouches[0];
 			// figure out if the touch is within bounds of the rating wheel
-			if(ratingWheel.isHovering(touch.pageX, touch.pageY)) {
+			if(ratingWheel.isHovering(touch.pageX-rwl/2, touch.pageY-rwl/2)) {
 				// find a new rotation angle		
 				var angle = Math.atan((height-rwl+rwl/2 - touch.pageY)/(touch.pageX - width/2)) - Math.PI/2;
 				if(touch.pageX - width/2 < 0) {
