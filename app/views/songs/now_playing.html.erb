@@ -51,8 +51,24 @@ document.body.onload = function() {
 		context.restore();
 	}).bind(this);
 
+	var needleImg = new Image();
+	needleImg.src = "/images/needle.png";
+
 	var needle = new cObject();
-		
+	nw = 10;
+	nh = 100;
+	needle.visible = true;
+	needle.width = nw;
+	needle.height = nh;
+	needle.x = width/2;
+	needle.y = meter.y + mh/4;
+	needle.draw = (function() {
+		context.save();
+		context.translate(needle.x, needle.y);
+		context.drawImage(needleImg, -nw/2, -nh+2,
+			needle.width, needle.height);
+		context.restore();
+	}).bind(this);
 	
 	// CALLBACK FUNCTIONS
 	var r = 0;	// rotation
@@ -62,6 +78,7 @@ document.body.onload = function() {
 		context.drawImage(backgroundImg, 0, 0, width, height);
 		ratingWheel.draw();
 		meter.draw();
+		needle.draw();
 	}).bind(this), 1000/30);	// 30 fps
 
 	// touch handlers
