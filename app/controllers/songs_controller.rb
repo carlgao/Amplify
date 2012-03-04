@@ -130,6 +130,7 @@ class SongsController < ApplicationController
     elsif direction == "down"
       @song.increment(:downvotes)
     end
+
     messages = 'none!'
     if @song.save
       messages = 'save successful'
@@ -142,8 +143,6 @@ class SongsController < ApplicationController
   end
 
   def dj
-
-    
     @now_playing_song = Song.where("playing=?", true).first
     #@now_playing_song = Song.order(:id).last
 
@@ -154,4 +153,40 @@ class SongsController < ApplicationController
       format.xml  { render :xml => @now_playing_song }
     end
   end
+
+  def play
+    song_id = params['song_id']
+    #@songs = Song.all
+    Song.update_all({ :playing => false })
+    @song = Song.find(song_id)
+    #@songs.each do |s|
+      #s.update_attributes( { :playing => false } )
+      #s.save
+    #end
+    @song.update_attributes( { :playing => true } )
+
+    if @song.save
+      messages = 'playing save successful'
+    else
+      messages = 'playing save failed'
+    end
+    respond_to do |format|
+      format.js { render(:text => song_id + '; ' + '; messages: ' + messages) }
+    end
+  end
+
+  #def not_play
+    #song_id = params['song_id']
+    #@song = Song.find(song_id)
+    #@song.update_attributes( { :playing => false } );
+
+    #if @song.save
+      #messages = 'not playing save successful'
+    #else
+      #messages = 'not playing save failed'
+    #end
+    #respond_to do |format|
+      #format.js { render(:text => song_id + '; ' + '; messages: ' + messages) }
+    #end
+  #end
 end

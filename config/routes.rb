@@ -11,6 +11,8 @@ Linword::Application.routes.draw do
       get :now_playing
       post :vote
       get :dj
+      post :play
+      post :not_play
     end
   end
 

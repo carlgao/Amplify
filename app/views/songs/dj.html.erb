@@ -28,7 +28,7 @@
     <td><%= song.playing %></td>
     <td><%= link_to 'Show', song %></td>
     <td><%= link_to 'Edit', edit_song_path(song) %></td>
-    <!--<td><%= link_to 'Destroy', song, :confirm => 'Are you sure?', :method => :delete %></td>-->
+    <td><%= link_to 'Destroy', song, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -42,7 +42,6 @@
     <th>Upvotes</th>
     <th>Downvotes</th>
     <th>Now playing</th>
-    <th>Source</th>
     <th></th>
     <th></th>
     <th></th>
@@ -55,10 +54,21 @@
     <td><%= song.upvotes %></td>
     <td><%= song.downvotes %></td>
     <td><%= song.playing %></td>
-    <td><%= song.source %></td>
     <td><%= link_to 'Show', song %></td>
     <td><%= link_to 'Edit', edit_song_path(song) %></td>
     <td><%= link_to 'Destroy', song, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <tr>
+  <td>
+    <div class="song">
+      <!--<div class="song-title"><%= song.name %></div>-->
+      <audio id="<%= song.id %>" controls="controls">
+      <source src="<%= song.source %>" type="audio/mpeg" />
+      Your browser does not support the audio element.
+      </audio>
+    </div>
+  </td>
+  <!--<td><%= song.source %></td>-->
   </tr>
 <% end %>
 </table>
@@ -74,6 +84,23 @@
   <br />
   <br />
   <br />
+
+
+
+
+
+
+
+<%= link_to 'New Song', new_song_path %>
+
+
+
+
+
+
+
+
+
 
 <div id="songs">
 <div class="song">
