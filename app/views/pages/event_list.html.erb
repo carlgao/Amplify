@@ -60,7 +60,8 @@
 <script type='text/javascript'>
 
          jQuery(window).ready(function(){  
-            jQuery("#btnInit").click(initiate_geolocation);  
+            //jQuery("#btnInit").click(initiate_geolocation);  
+             initiate_geolocation();
         });  
   
         function initiate_geolocation() {  
@@ -124,13 +125,22 @@ function readData(data) {
 
 
 
+<h1>Listing requests</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Score</th>
+    <th></th>
+  </tr>
+</table>
 
 
-<div class="event_list"><a href="http://eventbrite.com">Loading Events...</a></div>
-
-    <div>  
-      <button id="btnInit" class="btn primary">Find my location</button>  
-    </div>
+<div class="event_list">
+  <div>  
+    <button id="btnInit" class="btn primary">Find my location</button>  
+  </div>
+</div>
 </body>
 
 </html>
