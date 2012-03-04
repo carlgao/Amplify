@@ -139,4 +139,8 @@ class SongsController < ApplicationController
       format.js { render(:text => song_id + '; ' + direction + '; messages: ' + messages) }
     end
   end
+
+  def dj
+
+  end
 end
