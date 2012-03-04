@@ -1,3 +1,23 @@
+
+<script type="text/javascript">
+	document.addEventListener("touchmove", function(event) {
+		// handle one finger touches
+		switch(event.targetTouches.length) {
+		case 1:
+			var touch = event.targetTouches[0];
+			if(touch.pageX < 20) {	// go forward
+				window.location = "/songs/now_playing.html";
+			}
+			// stop the touches from moving the screen
+			event.preventDefault();
+			break;
+		default:
+			break;
+		}
+	}, false);
+</script>
+
+
 <div style="width:350px;">
   <div id="home-box" class="box" style="text-align:center">
     <div data-role="fieldcontain">
