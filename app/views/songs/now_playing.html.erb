@@ -81,9 +81,9 @@ var ratingView = function() {
 		id.visible = true;
 		id.width = 2;
 		id.height = 2;
-		var angle = (i/10) * 2*Math.PI/(5/4) - Math.PI/(5/4);
-		id.x = Math.cos(angle) * radius;
-		id.y = Math.sin(angle) * radius;
+		var angle = (i/10) * 2*Math.PI/(5/4) - Math.PI/(5/4) + Math.PI/2;
+		id.x = Math.cos(angle) * radius + ratingWheel.x;
+		id.y = Math.sin(angle) * radius + ratingWheel.y;
 		id.color = "rgba(0,0,0,1)";
 		indicators[i] = id;
 	}
