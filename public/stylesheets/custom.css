@@ -60,9 +60,8 @@ body { background: #000000}
 
 
 #title {
-  color: white;
   font-size:300%;
-  margin: 50px 50px 20px 50px;
+  margin: 20px 50px 50px 50px;
   text-align: center;
 }
 
@@ -119,3 +118,5 @@ width: 300px;
 /* displaying different pages */
 
 #ranking-page {display:none;}
+
+input {width:300px;}

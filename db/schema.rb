@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120303203606) do
+ActiveRecord::Schema.define(:version => 20120304021354) do
 
   create_table "requests", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20120303203606) do
     t.integer  "downvotes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "playing"
   end
 
 end
