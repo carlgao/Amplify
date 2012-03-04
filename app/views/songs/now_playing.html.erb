@@ -20,11 +20,11 @@ document.body.onload = function() {
 	var ratingWheel = new cObject();
 	ratingWheel.width = 450;
 	ratingWheel.height = 450;
-	ratingWheel.x = width/2 - 450/2;
-	ratingWheel.y = 430;
+	ratingWheel.x = width/2;
+	ratingWheel.y = 655;
 	ratingWheel.draw = (function() {
 		context.save();
-		context.translate(ratingWheel.x-450/2, ratingWheel.y-450/2);
+		context.translate(ratingWheel.x, ratingWheel.y);
 		context.rotate(r);
 		context.drawImage(ratingWheelImg, -450/2, -450/2, 
 				ratingWheel.width, ratingWheel.height);
@@ -64,6 +64,7 @@ document.body.onload = function() {
 
 <canvas id="paper"></canvas>
 
+<!--
 <% song = @now_playing_song %>
 <% if song == nil %>
   <tr>No songs currently playing</tr>
@@ -87,3 +88,4 @@ document.body.onload = function() {
 	<li class="ui-pagination-prev"><a href="#/pages/gallery1.html">Prev</a></li>
 	<li class="ui-pagination-next"><a href="#/pages/song_request.html">Next</a></li>
 </ul>
+-->
