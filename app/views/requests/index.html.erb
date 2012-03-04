@@ -5,17 +5,14 @@
     <th>Name</th>
     <th>Score</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @requests.each do |request| %>
   <tr>
     <td><%= request.name %></td>
     <td><%= request.score %></td>
-    <td><%= link_to 'Show', request %></td>
-    <td><%= link_to 'Edit', edit_request_path(request) %></td>
-    <td><%= link_to 'Destroy', request, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><button id="<%= request.id %>" class="request-vote-btn btn success">Upvote</button></td>
+    <td></td>
   </tr>
 <% end %>
 </table>

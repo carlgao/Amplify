@@ -213,4 +213,16 @@ class SongsController < ApplicationController
       format.js { render(:text => new_hotness.to_s + '; ' ) }
     end
   end
+
+  def destroy_all
+    @songs = Song.all
+    @songs.each do |s|
+      s.destroy
+    end
+
+    respond_to do |format|
+      format.html { redirect_to(songs_url) }
+      format.xml  { head :ok }
+    end
+  end
 end

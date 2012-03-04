@@ -30,15 +30,6 @@ $(document).ready(function(){
   /*} else {*/
   /*$(".btn").click(generateWord);*/
   /*}*/
-  $.ajax({
-    url: "http://developer.echonest.com/api/v4/song/search?api_key=U2IMNUKBKK0RPHBJY&format=json&results=15&artist=pitbull",
-    type: "GET",
-    dataType: "json"
-  })
-  .success(function(response) {
-    console.log(response);
-  })
-  ;
 
   $("audio").click(function() {
     /*setTimeout($.proxy( function() {console.log(this.paused);}), this,500), this));*/
@@ -168,14 +159,36 @@ $(document).ready(function(){
     .success(function(response) {
       console.log("success");
       console.log(response);
+      location.reload();
     })
     .fail(function(response) {
       console.log("fail")
       console.log(response);
     })
     ;
+    $("#autocomplete").val("");
   });
 
+  $(".request-vote-btn").click(function() {
+    requestId = $(this).attr('id');
+    console.log("Clicked request " + requestId);
+    $.ajax({
+      url: "/requests/vote",
+      type: "POST",
+      data: {request_id : requestId},
+      dataType: "text"
+    })
+    .success(function(response) {
+      alert("success");
+      console.log(response);
+      location.reload();
+    })
+    .fail(function(response) {
+      alert("fail")
+      console.log(response);
+    })
+    ;
+  });
 
   $(".upvote-btn").click(function() {
     songId = $(this).attr('id');

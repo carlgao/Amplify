@@ -6,6 +6,7 @@ Linword::Application.routes.draw do
     collection do
       get :request_song
       post :post_request
+      post :vote
     end
   end
 
@@ -19,6 +20,7 @@ Linword::Application.routes.draw do
       post :play
       post :not_play
       post :hotness
+      get :destroy_all
     end
   end
 
