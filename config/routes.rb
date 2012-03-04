@@ -2,7 +2,11 @@ Linword::Application.routes.draw do
 
   #resources :songs
 
-  resources :requests
+  resources :requests do
+    collection do
+      get :request_song
+    end
+  end
 
   resources :songs do
     collection do

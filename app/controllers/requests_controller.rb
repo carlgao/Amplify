@@ -80,4 +80,7 @@ class RequestsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def request_song
+  end
 end

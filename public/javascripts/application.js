@@ -3,7 +3,6 @@
 
 $(document).ready(function(){
   console.log("ready");
-
   
   /*change = 200;*/
   /*$.ajax({*/
@@ -159,7 +158,6 @@ $(document).ready(function(){
    
 
   $("#request-btn").click(function() {
-    alert("request");
     requestText = $("#request-input").val();
     $.ajax({
       url: "/songs/post_request",
@@ -223,6 +221,41 @@ $(document).ready(function(){
 
 });
 
+function onKeyPress(){
+      setTimeout(
+          $.proxy(function(){
+            var text = $("#autocomplete").val()
+            console.log(text);
+            if (text == "") {
+
+            } else {
+
+              $.ajax({
+                url: "http://developer.echonest.com/api/v4/song/search?api_key=U2IMNUKBKK0RPHBJY&format=json&results=15&artist=" + text,
+                type: "GET",
+                dataType: "json"
+              })
+              .success(function(response) {
+                var songsData = response.response.songs
+                console.log(songsData);
+                var songTitles = [];
+                for (i in songsData) {
+                  songTitles.push(songsData[i].artist_name + ' - ' + songsData[i].title);
+                }
+                console.log(songTitles);
+                $("input#autocomplete").autocomplete({
+                  source: songTitles
+                });
+              })
+              .fail(function(response) {
+                console.log("fail")
+                console.log(response);
+              })
+              ;
+            }
+          }, this), 5 
+      );
+}
 
 
 function generateWord(){
