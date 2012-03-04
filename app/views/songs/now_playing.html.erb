@@ -6,19 +6,20 @@ document.body.onload = function() {
 
 	canvas.width = 450;
 	canvas.height = 960;
+
+	var ratingWheelImg = new Image();
+	ratingWheelImg.onload = function() {};
+	ratingWheelImg.src = "/images/vinyl.png";
+
 	var ratingWheel = new cObject();
 	ratingWheel.width = 450;
 	ratingWheel.height = 960;
 	ratingWheel.x = 640/2 - 450/2;
 	ratingWheel.y = 430;
 	ratingWheel.draw = (function() {
-		context.drawImage(ratingWheel.x, ratingWheel.y, 
+		context.drawImage(ratingWheelImg, ratingWheel.x, ratingWheel.y, 
 				ratingWheel.width, ratingWheel.height);
 	}).bind(this);
-
-	var ratingWheelImg = new Image();
-	ratingWheelImg.onload = function() {};
-	ratingWheelImg.src = "/images/vinyl.png";
 
 	// starts timed draw events
 	setInterval((function() {
