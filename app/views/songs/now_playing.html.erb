@@ -57,7 +57,7 @@ if (typeof window.DeviceMotionEvent != 'undefined') {
         x2 = x1;
         y2 = y1;
         z2 = z1;
-    }, 1500);
+    }, 50);
 }
 
 setInterval(function () {
@@ -92,7 +92,7 @@ setInterval(function () {
 		console.log("fail");
 		console.log(response);
 		});
-}, 1500);
+}, 50);
 
 var nr = 0;	// needle rotation angle
 var ratingView = function() {
